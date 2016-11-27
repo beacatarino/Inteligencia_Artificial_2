@@ -8,10 +8,11 @@ class Atom:
 		self.negative = n
 
 class Action:
-	def __init__(self):
-		self.name = ''		
-		self.precond_list = [] # list of atoms
-		self.effect_list = [] # list of atoms
+	def __init__(self,ac_name,arg,p_list,e_list):
+		self.name = ac_name	# action name 
+		self.arg_list = arg # arguments list	
+		self.precond_list = p_list # list of atoms
+		self.effect_list = e_list # list of atoms
 
 class State:
 	def __init__(self,t,a_list):
@@ -48,8 +49,27 @@ def read_atom(atom):
 
 	return (name,terms_list,negative)
 
+def read_action_name(action):
+	arg_list = []
+	action = action[:-1]
+
+	part = action.split('(')
+
+	name = part[0]
+
+	arg_part = part[1]
+
+	arg = arg_part.split(',')
+
+	for a in arg:
+		arg_list.append(a)
+
+	return (name,arg_list)
+
 
 def read_data(file_name):
+
+	# Sedundo prof, se nao derem I temos de negar tudo ??? <-------------
 	initial = None
 	actions_list = []
 
@@ -74,10 +94,32 @@ def read_data(file_name):
 					atoms_list.append(Atom(name,terms_list,negative))
 				goal = State(-1,atoms_list)	
 
+			elif line[0] == 'A':
+					(action_name,arg_list) = read_action_name(line_terms[1])
 
-	#problem = Problem(initial,goal,actions_list)
+					n_point = 0
+					for term in line_terms:
+						if term == '->':
+							break
+						n_point = n_point + 1	
 
-	return initial
+					precond_list = []
+					for a in line_terms[3:n_point-1]:
+						(name,terms_list,negative) = read_atom(a)
+						precond_list.append(Atom(name,terms_list,negative))
+
+					effect_list = []
+					for a in line_terms[n_point+1:]:
+						(name,terms_list,negative) = read_atom(a)
+						effect_list.append(Atom(name,terms_list,negative))
+
+					
+					actions_list.append(Action(action_name,arg_list,precond_list,effect_list))		
+
+	
+
+	#return initial
+	return (initial,goal,actions_list)
 
 
 
@@ -89,7 +131,30 @@ if len(sys.argv) != 2:
 
 file_name = sys.argv[1] # input file
 
+"""
 initial = read_data(file_name) 
 
+print ('time = ' + str(initial.time))
 for atom in initial.atoms_list:
 	print (atom.name)
+
+actions_list = read_data(file_name)
+
+for a in actions_list:
+	print(a.name)
+
+"""
+ 
+(initial,goal,actions_list) = read_data(file_name) 
+
+print ('--Initial State')
+for a in initial.atoms_list:
+	print (a.name + str(a.terms_list))
+
+print ('--Goal State')
+for a in goal.atoms_list:
+	print (a.name + str(a.terms_list))
+
+print('--Actions')		
+for a in actions_list:
+	print(a.name)

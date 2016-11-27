@@ -7,7 +7,7 @@ class Atom:
 		# 0 negative 1 not negative
 		self.negative = n
 
-
+"""
 line_list = str.split()
 atoms_list = []
 
@@ -32,3 +32,18 @@ for atom in atoms_list:
 	print ('atom: ' + atom.name)
 	for p in atom.terms_list:
 		print p
+"""
+
+str = 'A move(b,f,t) : on(b,f)  clear(b) clear(t) -> -on(b,f) on(b,t) -clear(t) clear(f)'
+
+line_terms = str.split()
+n_point = 0
+for term in line_terms:
+	if term == '->':
+		break
+	n_point = n_point + 1		
+
+for a in str[1:n_point+1]:
+	print (a)
+
+print n_point	
