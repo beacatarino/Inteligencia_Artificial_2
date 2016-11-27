@@ -19,12 +19,6 @@ class State:
 		self.time = t
 		self.atoms_list = a_list # list of atoms
 
-class Problem:
-	def __init__(self,i,g,a_list):
-		initial_state = i
-		goal_state = g
-		actions_list = a_list
-
 
 def read_atom(atom):
 	terms_list = []
@@ -116,34 +110,16 @@ def read_data(file_name):
 					
 					actions_list.append(Action(action_name,arg_list,precond_list,effect_list))		
 
-	
-
-	#return initial
 	return (initial,goal,actions_list)
 
-
-
-# MAIN
-
+"""
+-----------------------------MAIN--------------------------------------
+"""
 if len(sys.argv) != 2:
     print("Number of arguments is wrong, please enter 1 argument.")
     sys.exit(2)
 
 file_name = sys.argv[1] # input file
-
-"""
-initial = read_data(file_name) 
-
-print ('time = ' + str(initial.time))
-for atom in initial.atoms_list:
-	print (atom.name)
-
-actions_list = read_data(file_name)
-
-for a in actions_list:
-	print(a.name)
-
-"""
  
 (initial,goal,actions_list) = read_data(file_name) 
 
