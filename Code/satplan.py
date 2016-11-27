@@ -14,101 +14,72 @@ class Action:
 		self.effect_list = [] # list of atoms
 
 class State:
-	def __init__(self):
-		self.time = 0
-		self.atoms_list = [] # list of atoms
+	def __init__(self,t,a_list):
+		self.time = t
+		self.atoms_list = a_list # list of atoms
 
 class Problem:
-	def __init__(self):
-		initial_state = None
-		goal_state = None
-		actions_list = []
+	def __init__(self,i,g,a_list):
+		initial_state = i
+		goal_state = g
+		actions_list = a_list
 
 
-def read_atom(atom_string):
+def read_atom(atom):
+	terms_list = []
+	atom = atom[:-1]
 
-	atom_terms = []
+	part = atom.split('(')
 
-	atom_string = atom_string[:-1]
-	a_string = atom_string.split('(')
-
-	a_name = a_string[0]
-	if a_name[0] == '-': # literal is negative
+	first_part = part[0]
+	
+	if first_part[0] == '-':
 		negative = 0
-		name = a_name[1:]
+		name = first_part[1:]
 	else:
 		negative = 1
-		name = a_name	
+		name = first_part	
 
-	for a in a_string[1:]:
-		part = a.split(',')
-		for p in part:
-			print (p)
-			atom_terms.append(p)
+	terms_part = part[1]	
+	terms = terms_part.split(',')
 
-	return (name,atom_terms,negative)		
-"""
-	print (a)
-	atom = Atom()
-	atom_terms = []
+	for term in terms:
+		terms_list.append(term)
 
-	line_par = a.split('(')
-
-	print (line_par)
-
-	for par in line_par[:]:
-		print(par)
-
-	atom.name = line_par[0]
-	print('name:' + atom.name)
-
-	line_term = line_par[1]
-	line_term = line_term[:-1] #remove last ')'
-	line_term = line_term.split(',')
-
-	for term in line_term: #find terms
-		print('term:' + term)
-		atom_terms.append(term)       		
-
-	atom.terms_list = atom_terms
-"""
+	return (name,terms_list,negative)
 
 
 def read_data(file_name):
-
-	problem = Problem()
-	initial = None #Se nao houver initial -negar atomos <-- do it later
+	initial = None
+	actions_list = []
 
 	with open(file_name) as f:
 		for line in f:
-			# removes '\n' character
-			#line = line.rstrip()
-	        # splits every word in the line separated by whitespace
-			line_list = line.split()      
+			line_terms = line.split()
 
 			if line[0] == 'I':
-				initial = State()
-				initial.time = 0
-				a_list = []				
+				atoms_list = []
 
-				for a in line_list[1:]:
-					(name,atom_terms,negative) = read_atom(a)
-	        			
-	        		a_list.append(Atom(name,atom_terms,negative))
+				for a in line_terms[1:]:
+					(name,terms_list,negative) = read_atom(a)
+					atoms_list.append(Atom(name,terms_list,negative))
 
-				initial.atoms_list = a_list 	
 
-			elif line[0] == 'A':
-				print ('action')
+				initial = State(0,atoms_list)
 
 			elif line[0] == 'G':
-				print ('Goal')
+				atoms_list = []
+				for a in line_terms[1:]:
+					(name,terms_list,negative) = read_atom(a)
+					atoms_list.append(Atom(name,terms_list,negative))
+				goal = State(-1,atoms_list)	
 
 
-	if initial != None:    	
-	    problem.initial_state = initial	
+	#problem = Problem(initial,goal,actions_list)
 
-	return a_list
+	return initial
+
+
 
 # MAIN
 
@@ -118,7 +89,7 @@ if len(sys.argv) != 2:
 
 file_name = sys.argv[1] # input file
 
-atom_list = read_data(file_name) 
+initial = read_data(file_name) 
 
-for atom in atom_list:
+for atom in initial.atoms_list:
 	print (atom.name)
