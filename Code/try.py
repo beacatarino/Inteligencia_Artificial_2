@@ -1,0 +1,34 @@
+str = 'I on(A,B) on(B,C) on(C,Table) clear(A)'
+
+class Atom:
+	def __init__(self,a_name,t_list,n):
+		self.name =  a_name		
+		self.terms_list = t_list
+		# 0 negative 1 not negative
+		self.negative = n
+
+
+line_list = str.split()
+atoms_list = []
+
+for atom in line_list[1:]:
+
+	p_list = []
+
+	atom = atom[:-1]
+	atomm = atom.split('(')
+
+	name = atomm[0]
+
+	for a in atomm[1:]:
+		part = a.split(',')
+		for p in part:
+			p_list.append(p)
+	negative = 1		
+
+	atoms_list.append(Atom(name,p_list,negative))
+
+for atom in atoms_list:
+	print ('atom: ' + atom.name)
+	for p in atom.terms_list:
+		print p
