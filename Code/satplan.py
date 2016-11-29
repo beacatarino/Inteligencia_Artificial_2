@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+from general import *
+
 import sys
 
 class Atom:
@@ -66,6 +70,7 @@ def read_data(file_name):
 	# Sedundo prof, se nao derem I temos de negar tudo ??? <-------------
 	initial = None
 	actions_list = []
+	constants_list = set([])
 
 	with open(file_name) as f:
 		for line in f:
@@ -76,6 +81,8 @@ def read_data(file_name):
 
 				for a in line_terms[1:]:
 					(name,terms_list,negative) = read_atom(a)
+					for t in terms_list:
+						constants_list.add(t)
 					atoms_list.append(Atom(name,terms_list,negative))
 
 
@@ -85,6 +92,8 @@ def read_data(file_name):
 				atoms_list = []
 				for a in line_terms[1:]:
 					(name,terms_list,negative) = read_atom(a)
+					for t in terms_list:
+						constants_list.add(t)
 					atoms_list.append(Atom(name,terms_list,negative))
 				goal = State(-1,atoms_list)	
 
@@ -110,7 +119,8 @@ def read_data(file_name):
 					
 					actions_list.append(Action(action_name,arg_list,precond_list,effect_list))		
 
-	return (initial,goal,actions_list)
+	return (initial,goal,actions_list,constants_list)
+
 
 """
 -----------------------------MAIN--------------------------------------
@@ -121,11 +131,18 @@ if len(sys.argv) != 2:
 
 file_name = sys.argv[1] # input file
  
-(initial,goal,actions_list) = read_data(file_name) 
+(initial,goal,actions_list,constants_list) = read_data(file_name)
+# sat_solver(initial,goal,actions_list,constants_list) 
 
+general_algorithm(initial,goal,actions_list,constants_list)
+
+
+"""
+# PRINTS  
 print ('--Initial State')
 for a in initial.atoms_list:
 	print (a.name + str(a.terms_list))
+	
 
 print ('--Goal State')
 for a in goal.atoms_list:
@@ -134,3 +151,8 @@ for a in goal.atoms_list:
 print('--Actions')		
 for a in actions_list:
 	print(a.name)
+
+print('--Constants')	
+for c in constants_list:
+	print(c)
+"""

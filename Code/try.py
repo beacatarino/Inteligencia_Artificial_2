@@ -32,7 +32,7 @@ for atom in atoms_list:
 	print ('atom: ' + atom.name)
 	for p in atom.terms_list:
 		print p
-"""
+
 
 str = 'A move(b,f,t) : on(b,f)  clear(b) clear(t) -> -on(b,f) on(b,t) -clear(t) clear(f)'
 
@@ -47,3 +47,27 @@ for a in str[1:n_point+1]:
 	print (a)
 
 print n_point	
+
+"""
+
+from itertools import combinations_with_replacement,permutations
+a = 'olatudobem'
+
+s = combinations_with_replacement(a,3)
+"""
+for i in s:
+	print (i)
+	ii = list(i)
+	print(ii)
+"""
+a = ['A','B','C']	
+bb = ['A','B']
+b = ('B','A','C')
+
+p = permutations(a,3)
+ppp = list(p)
+print(ppp)
+for pp in p:
+	if b == pp:
+		print('ayyy')
+	print(pp)
