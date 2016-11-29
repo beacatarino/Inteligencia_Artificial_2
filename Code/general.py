@@ -24,25 +24,22 @@ class clause:
 	def __init__(self,list_variables):
 		self.list_variables = list_variables
 
+def clause_from_state(atoms_list,clause_list,SAT_variables_list,atoms_dictionary,t):
 
-def create_CNF(initial,goal,actions_list,constants_list,h):
-
-	SAT_variables_list = set([]) # mudar depois para set <-----------------
-	atoms_dictionary = {} # Dicionario com nme de atomos e corresponte n de argumentos
-	clause_list = []
-
-	# 1 - Initial State --------------------------------------------------------------
-	# t = 0:
-	for a in initial.atoms_list:
+	for a in atoms_list:
 		length = len(a.terms_list)
 		atoms_dictionary[a.name] = length
 
-		sat_variable = SAT_variable(a.name,a.terms_list,0)
+		sat_variable = SAT_variable(a.name,a.terms_list,t)
 		SAT_variables_list.add(sat_variable)
 		lit = literal(sat_variable,a.negative)
 		list_literals = [lit]
 		cla = clause(list_literals)
 		clause_list.append(cla)
+
+	return (clause_list,SAT_variables_list,atoms_dictionary)
+
+def negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list,t):
 
 	# other atoms are negated
 	for (k,v) in atoms_dictionary.items():
@@ -52,19 +49,35 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 			add_clause = True
 			permut = permutations(c,int(v))
 			for p in permut:
-				sat_variable = SAT_variable(k,list(p),0)
+				sat_variable = SAT_variable(k,list(p),t)
 				if sat_variable in SAT_variables_list: # atom already exists on the clauses
 					add_clause = False
 			if add_clause == True:
-				sat_variable = SAT_variable(k,list(c),0)			
+				sat_variable = SAT_variable(k,list(c),t)			
 				SAT_variables_list.add(sat_variable)
 				lit = literal(sat_variable,0) # negated
 				list_literals = [lit]
 				cla = clause(list_literals)
 				clause_list.append(cla)
 
+	return (SAT_variables_list,clause_list)
 
-	# 2 - Goal state - final time step of the horizon h
+def create_CNF(initial,goal,actions_list,constants_list,h):
+
+	SAT_variables_list = set([]) 
+	atoms_dictionary = {} # Dicionario com nme de atomos e corresponte n de argumentos
+	clause_list = []
+
+	# 1 - Initial State --------------------------------------------------------
+	t = 0
+	(clause_list,SAT_variables_list,atoms_dictionary) = clause_from_state(initial.atoms_list,clause_list,SAT_variables_list,atoms_dictionary,t)
+	(SAT_variables_list,clause_list) = negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list,t)
+
+
+	# 2 - Goal state ----------------------------------------------------------
+	t = h
+	(clause_list,SAT_variables_list,atoms_dictionary) = clause_from_state(goal.atoms_list,clause_list,SAT_variables_list,atoms_dictionary,t)
+	(SAT_variables_list,clause_list) = negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list,t)
 
 	# 3 - actions imply both their preconditions and their effects, for all time  
 
@@ -80,7 +93,7 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 	print('-----CLAUSES-----')
 	for c in clause_list:
 		for l in c.list_variables:
-			print(l.variable.id + ' n ' + str(l.n) + '  ' + str(l.variable.arg_list) + ' t= ' + str(l.variable.t))
+			print(' t=' + str(l.variable.t) + ' n=' + str(l.n) + ' ' +l.variable.id + '  ' + str(l.variable.arg_list))
 
 
 
