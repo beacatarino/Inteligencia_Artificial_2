@@ -56,6 +56,24 @@ def negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list
 
 	return (SAT_variables_list,clause_list)
 
+def add_action_clause(atoms_list,SAT_variables_list,clause_list,action,c,t):
+
+	for atom in atoms_list:
+		arg_list = []
+		list_literals = [literal(action,0)] # negated
+		for term in atom.terms_list:
+			try:
+				val = int(term)
+				arg_list.append(c[term])					   
+			except ValueError:
+				arg_list.append(term)
+		atom_var = SAT_variable(atom.name,arg_list,t)
+		SAT_variables_list.add(atom_var)
+		list_literals.append(literal(atom_var,atom.negative))		
+		clause_list.append(clause(list_literals))
+
+	return	(SAT_variables_list,clause_list)
+
 def create_CNF(initial,goal,actions_list,constants_list,h):
 
 	SAT_variables_list = set([]) 
@@ -82,9 +100,13 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 			for c in combinations:
 				action = SAT_variable(a.name,list(c),t)
 				SAT_variables_list.add(action)
-				for p in a.precond_list:
-					list_literals = [literal(action,0)] # negated
-					
+				# Add precond list				
+				(SAT_variables_list,clause_list) = add_action_clause(a.precond_list,SAT_variables_list,clause_list,action,c,t)	
+				# Add effect list
+				(SAT_variables_list,clause_list) = add_action_clause(a.effect_list,SAT_variables_list,clause_list,action,c,t+1)	
+
+		 		  
+				
 
 
 
@@ -96,12 +118,12 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 
 
 	# Print of clauses
-	"""
 	print('-----CLAUSES-----')
 	for c in clause_list:
+		print('clause')
 		for l in c.list_variables:
 			print(' t=' + str(l.variable.t) + ' n=' + str(l.n) + ' ' +l.variable.id + '  ' + str(l.variable.arg_list))
-	"""
+	
 
 
 

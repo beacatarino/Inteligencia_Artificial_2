@@ -134,6 +134,7 @@ def read_data(file_name):
 								new_term.append(arg_dict[t])
 							else:
 								new_term.append(t)
+						#print new_term		
 						effect_list.append(Atom(name,new_term,negative))
 
 					

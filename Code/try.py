@@ -68,3 +68,12 @@ p = product(a,repeat = 2)
 
 for pp in p:
 	print(pp)
+
+a = [2,'Table']
+
+
+for n in a:
+	try:
+	   val = int(n)
+	except ValueError:
+	   print(n)
