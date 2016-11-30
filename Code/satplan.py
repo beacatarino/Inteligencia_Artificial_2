@@ -48,8 +48,9 @@ def read_atom(atom):
 	return (name,terms_list,negative)
 
 def read_action_name(action):
-	arg_list = []
+	arg_dict = {}
 	action = action[:-1]
+	n = 0
 
 	part = action.split('(')
 
@@ -60,9 +61,10 @@ def read_action_name(action):
 	arg = arg_part.split(',')
 
 	for a in arg:
-		arg_list.append(a)
+		arg_dict[a] = n
+		n = n + 1
 
-	return (name,arg_list)
+	return (name,arg_dict)
 
 
 def read_data(file_name):
@@ -98,7 +100,11 @@ def read_data(file_name):
 				goal = State(-1,atoms_list)	
 
 			elif line[0] == 'A':
-					(action_name,arg_list) = read_action_name(line_terms[1])
+					(action_name,arg_dict) = read_action_name(line_terms[1])
+
+					arg_list = []
+					for k,v in arg_dict.items():
+						arg_list.append(v)
 
 					n_point = 0
 					for term in line_terms:
@@ -106,15 +112,29 @@ def read_data(file_name):
 							break
 						n_point = n_point + 1	
 
-					precond_list = []
-					for a in line_terms[3:n_point-1]:
-						(name,terms_list,negative) = read_atom(a)
-						precond_list.append(Atom(name,terms_list,negative))
 
+					precond_list = []
+					for a in line_terms[3:n_point]:
+						(name,terms_list,negative) = read_atom(a)
+						new_term = []
+						for t in terms_list:
+							if arg_dict.has_key(t):
+								new_term.append(arg_dict[t])
+							else:
+								new_term.append(t)
+
+						precond_list.append(Atom(name,new_term,negative))
+					
 					effect_list = []
 					for a in line_terms[n_point+1:]:
 						(name,terms_list,negative) = read_atom(a)
-						effect_list.append(Atom(name,terms_list,negative))
+						new_term = []
+						for t in terms_list:
+							if arg_dict.has_key(t):
+								new_term.append(arg_dict[t])
+							else:
+								new_term.append(t)
+						effect_list.append(Atom(name,new_term,negative))
 
 					
 					actions_list.append(Action(action_name,arg_list,precond_list,effect_list))		
@@ -142,7 +162,7 @@ general_algorithm(initial,goal,actions_list,constants_list)
 print ('--Initial State')
 for a in initial.atoms_list:
 	print (a.name + str(a.terms_list))
-	
+
 
 print ('--Goal State')
 for a in goal.atoms_list:

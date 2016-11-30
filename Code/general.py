@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from sat_solver import *
-from itertools import combinations_with_replacement,permutations
+from itertools import product
 
 class SAT_variable:
 	def __init__(self,name ,arg,t):
@@ -44,21 +44,15 @@ def negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list
 	# other atoms are negated
 	for (k,v) in atoms_dictionary.items():
 		# Combinacoes possiveis para um atomo
-		comb = combinations_with_replacement(constants_list, int(v))
+		comb = product(constants_list, repeat = int(v))
 		for c in comb:
-			add_clause = True
-			permut = permutations(c,int(v))
-			for p in permut:
-				sat_variable = SAT_variable(k,list(p),t)
-				if sat_variable in SAT_variables_list: # atom already exists on the clauses
-					add_clause = False
-			if add_clause == True:
-				sat_variable = SAT_variable(k,list(c),t)			
+			sat_variable = SAT_variable(k,list(c),t)
+			if sat_variable not in SAT_variables_list:						
 				SAT_variables_list.add(sat_variable)
 				lit = literal(sat_variable,0) # negated
 				list_literals = [lit]
 				cla = clause(list_literals)
-				clause_list.append(cla)
+				clause_list.append(cla)	
 
 	return (SAT_variables_list,clause_list)
 
@@ -81,6 +75,19 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 
 	# 3 - actions imply both their preconditions and their effects, for all time  
 
+	for t in range(0, h):
+		for a in actions_list:
+			print('------------' + a.name)
+			combinations = product(constants_list, repeat = len(a.arg_list)) 
+			for c in combinations:
+				action = SAT_variable(a.name,list(c),t)
+				SAT_variables_list.add(action)
+				for p in a.precond_list:
+					list_literals = [literal(action,0)] # negated
+					
+
+
+
 	# 4 - frame axioms, stating that, for each ground actions and for each time
 	# step , any atom in the Hebrand base not modified by an
 	# action maintains the same logical value from t to t + 1
@@ -89,12 +96,12 @@ def create_CNF(initial,goal,actions_list,constants_list,h):
 
 
 	# Print of clauses
-	
+	"""
 	print('-----CLAUSES-----')
 	for c in clause_list:
 		for l in c.list_variables:
 			print(' t=' + str(l.variable.t) + ' n=' + str(l.n) + ' ' +l.variable.id + '  ' + str(l.variable.arg_list))
-
+	"""
 
 
 
