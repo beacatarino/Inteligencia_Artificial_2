@@ -1,13 +1,14 @@
 #!/usr/bin/python
 
 from sat_solver import *
-from itertools import product
+from itertools import product, combinations
 
 class SAT_variable:
 	def __init__(self,name ,arg,t):
 		self.id = name 
 		self.arg_list = arg
 		self.t = t
+
 	def __eq__(self,other):
 		return (isinstance(other,self.__class__)) and other.id == self.id and other.arg_list == self.arg_list and other.t == self.t 
 
@@ -74,56 +75,125 @@ def add_action_clause(atoms_list,SAT_variables_list,clause_list,action,c,t):
 
 	return	(SAT_variables_list,clause_list)
 
+def from_clause_to_SAT(clause_list,SAT_variables_list):
+
+	SAT_problem = ''
+
+	# p format variables clauses
+	SAT_problem = 'p cnf ' + str(len(SAT_variables_list)) + ' ' + str(len(clause_list)) + ' '
+
+	for c in clause_list:
+		for l in c.list_variables:
+			n = 0
+			for i in SAT_variables_list:
+				n = n + 1	
+				if (i == l.variable):
+					break
+				
+			if l.n == 0:
+				SAT_problem += '-' + str(n) + ' '
+			else:
+				SAT_problem += str(n) + ' '
+
+		SAT_problem += '0 '	# end of clause
+		#SAT_problem += '\n'
+
+	print(SAT_problem)
+
+	return SAT_problem
+
+
 def create_CNF(initial,goal,actions_list,constants_list,h):
 
 	SAT_variables_list = set([]) 
 	atoms_dictionary = {} # Dicionario com nme de atomos e corresponte n de argumentos
 	clause_list = []
+	
 
 	# 1 - Initial State --------------------------------------------------------
 	t = 0
 	(clause_list,SAT_variables_list,atoms_dictionary) = clause_from_state(initial.atoms_list,clause_list,SAT_variables_list,atoms_dictionary,t)
 	(SAT_variables_list,clause_list) = negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list,t)
 
+	print('inicio ' + str(len(clause_list))	)
 
 	# 2 - Goal state ----------------------------------------------------------
 	t = h
 	(clause_list,SAT_variables_list,atoms_dictionary) = clause_from_state(goal.atoms_list,clause_list,SAT_variables_list,atoms_dictionary,t)
 	(SAT_variables_list,clause_list) = negated_atoms(atoms_dictionary,constants_list,SAT_variables_list,clause_list,t)
 
+	print('after goal ' + str(len(clause_list))	)
+
 	# 3 - actions imply both their preconditions and their effects, for all time  
 
 	for t in range(0, h):
+		list_actions = []
+		action_literals = []
 		for a in actions_list:
-			print('------------' + a.name)
-			combinations = product(constants_list, repeat = len(a.arg_list)) 
-			for c in combinations:
+			#print('------------' + a.name)
+			combin = product(constants_list, repeat = len(a.arg_list)) 
+			for c in combin:
 				action = SAT_variable(a.name,list(c),t)
+				list_actions.append(action)
+				action_literals.append(literal(action,1))
 				SAT_variables_list.add(action)
 				# Add precond list				
 				(SAT_variables_list,clause_list) = add_action_clause(a.precond_list,SAT_variables_list,clause_list,action,c,t)	
 				# Add effect list
 				(SAT_variables_list,clause_list) = add_action_clause(a.effect_list,SAT_variables_list,clause_list,action,c,t+1)	
+		
+		print('after actions ' + str(len(clause_list)))
 
-		 		  
-				
+		# 5 - exactly one action is performed in each time step 
+		clause_list.append(clause(action_literals)) # clause at least one
+
+		print('after at least one ' + str(len(clause_list)))
+
+		# Clauses At most one:	
+		for c in combinations(list_actions, 2):
+			list_literals = []
+			for l in range(0,2):
+				list_literals.append(literal(c[l],0))
+			clause_list.append(clause(list_literals))	
+
+	print('after at most one ' + str(len(clause_list)))
+	
 
 
+	# 4 - frame axioms - any atom in the Hebrand base not modified by an action 
+	#	   maintains the same logical value from t to t + 1
 
-	# 4 - frame axioms, stating that, for each ground actions and for each time
-	# step , any atom in the Hebrand base not modified by an
-	# action maintains the same logical value from t to t + 1
+	# MISSING: COMO saber que um atomo nao e modificado. Olhamos para os precons, effects ou apenas variaveis?
+	# De resto, para cada atomo e so aplicar as clausulas como tenho nas notas	
 
-	# 5 - aexactly one action is performed in each time step 
+	"""
+	for t in range(0,h):
+		for a in list_actions: # all possible combinations for l actions
+			combinations = product(constants_list, repeat = len(a.arg_list)) 
+			for c in combinations:
+	"""			
 
 
+	print('after frame ' + str(len(clause_list)))	
+
+	
+
+	
+
+
+	"""
 	# Print of clauses
 	print('-----CLAUSES-----')
+	n = 0
 	for c in clause_list:
-		print('clause')
+		n = n+1
 		for l in c.list_variables:
-			print(' t=' + str(l.variable.t) + ' n=' + str(l.n) + ' ' +l.variable.id + '  ' + str(l.variable.arg_list))
-	
+			print('clause ' + str(n) + ' t=' + str(l.variable.t) + ' n=' + str(l.n) + ' ' +l.variable.id + '  ' + str(l.variable.arg_list))
+	"""
+
+	SAT_problem = from_clause_to_SAT(clause_list,SAT_variables_list)
+
+	return SAT_problem
 
 
 

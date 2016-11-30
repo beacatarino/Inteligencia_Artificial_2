@@ -50,7 +50,7 @@ print n_point
 
 """
 
-from itertools import combinations_with_replacement,permutations,product
+from itertools import combinations_with_replacement,permutations,product, combinations
 a = 'olatudobem'
 
 s = combinations_with_replacement(a,3)
@@ -77,3 +77,7 @@ for n in a:
 	   val = int(n)
 	except ValueError:
 	   print(n)
+
+c = combinations('ABCD', 2)
+for a in c:
+	print(a)
