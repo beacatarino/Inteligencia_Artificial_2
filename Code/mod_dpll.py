@@ -1,244 +1,262 @@
 from copy import deepcopy
 
-
 class Node:
     
-    def __init__(self, c, s, m, dm, p, l,bl):
-        self.clauses = c
-        self.symbols = s
-        self.model = m
-        self.decision_model = dm     # only updated when we decide a new branch
-        self.parent = p
-        self.level = l
-        self.blevel = bl
+    def __init__(self, clauses, symbols, model, level, parent):
+        self.clauses = clauses
+        self.symbols = symbols
+        self.model = model          # after all unit propagations
+        self.level = level
+        self.parent = parent
 
-def get_value(symbol):
+# Computes the symbol and value of a literal
+def get_symbol(literal):
 
-    if symbol[0] == '-':
-        return False
+    if literal[0] == '-':
+        return literal[1:], False
     else:
-        return True
+        return literal, True
 
-def neg(symbol):
+def get_literal(symb, val):
 
-    if symbol[0] == '-':
-        return symbol[1:]
+    if val:
+        return symb
     else:
-        return '-' + symbol
+        return '-' + symb
 
-def get_symb(literal):
+def neg(literal):
 
     if literal[0] == '-':
         return literal[1:]
     else:
-        return literal
+        return '-' + literal
 
-def unit_propagation(node):
+def find_unit_clause(clause_list, model):
 
-    clauses = node.clauses
-    model = node.model
+    new_assign = {}
+    for clause in clause_list:
 
-    new_assigns = {}
-    used_models = []
+        # finds unit clause
+        if len(clause) == 1:
+            symb, val = get_symbol(clause[0])
+            new_assign.update({symb: val})
 
+    return new_assign
 
-    new_clauses = deepcopy(clauses)
-    for symb, assig in model.items():
-        for c in clauses:
+def unit_propagation(node, unit_dict):
 
-            # when the literal is True
-            if (assig and symb in c) or (not assig and neg(symb) in c):
+    node.model.update(unit_dict)
 
-                # only keep unsatified clauses
-                if c in new_clauses:
-                    new_clauses.remove(c)
-    
+    # propagates the unit clause
 
-        for c in clauses:
-            # when the literal is False
-            if (not assig and symb in c) or (assig and neg(symb) in c):
-                # updates the clause, removing the False literal
-                new_c = deepcopy(c)
-                if symb in new_c:
-                    new_c.remove(symb)
-                else:
-                    new_c.remove(neg(symb))
+    # removes clauses with the literal
+    new_clauses = deepcopy(node.clauses)
+    for symb, val in unit_dict.items():
+        # print(symb)
+        for clause in node.clauses:
+            if get_literal(symb, val) in clause and clause in new_clauses:
+                new_clauses.remove(clause)
 
-                if new_c not in new_clauses and c in new_clauses:
-                    new_clauses.append(new_c)
-                    new_clauses.remove(c)
-                # print("Removed literal in a clause " + str(new_c))
-                
+    # print(new_clauses)
+    node.clauses = new_clauses
 
-        for new_c in new_clauses:
-            # new assignment learned from the generation of a unit clause
-            if len(new_c) == 1:
-                # print("NEW ASSIGNMENT")
-                new_assigns[get_symb(new_c[0])] = get_value(new_c[0])
-                used_models.append({symb: assig})
+    # print('After removing true clauses: \n' +  str(node.clauses))
 
-    new_model = deepcopy(model)
-    new_model.update(new_assigns)
+    # removes clauses with negative of the literal
+    for symb, val in unit_dict.items():
+        for clause in node.clauses:
+            neg_lit = neg(get_literal(symb, val))
+            if neg_lit in clause:
+                clause.remove(neg_lit)
 
-
-    return(new_clauses, new_model, used_models)
-
-# Using DLIS heuristic
-def DecideNextBranch(node, backtrack):
-
-    max_unsat_clauses = None
-
-
-    # finds symbols in most unsatisfied clauses
-    for s in node.symbols:
-
-        unsat_clauses = 0
-        for c in node.clauses:
-            if s in c or neg(s) in c:
-                unsat_clauses = unsat_clauses + 1
-
-        if max_unsat_clauses == None:
-            max_unsat_clauses = unsat_clauses
-            decision_symbol = s
-        elif unsat_clauses > max_unsat_clauses: 
-            max_unsat_clauses = unsat_clauses
-            decision_symbol = s
-
-    clauses = deepcopy(node.clauses)
-    symbols = deepcopy(node.symbols)
-    #symbols.remove(decision_symbol)
-    model = deepcopy(node.model)
-
-    # first tries assigning true. If this leads to a backtrack, try false
-    if backtrack:
-        model[decision_symbol] = False
-    else:
-        model[decision_symbol] = True
-
-    node.clauses = clauses
-    node.symbols = symbols
-    node.model = model
-    node.decision_model = model
+    # print('After removing false clauses: \n' + str(node.clauses))
 
     return node
 
-def check_UIP(branch_model, used_model):
+def checks_for_conflict(clause_list):
 
-    for bm in branch_model:
-        if bm in used_model:
-            return False
-
-    return True
-
-def get_clause_from_used_models(model):
-
-    clause = []
-    for symb, val in model.items():
-        if val:
-            clause.append(neg(symb))
-        else:
-            clause.append(symb)
-
-    return(clause)
-
-
-def get_conflict_clause(node, used_model):
-
-    if check_UIP(node.decision_model, used_model):
-        return get_clause_from_used_models(node.model)
-
-def get_status(node, used_model):
-
-    if len(node.clauses) == 0:
-        print('\nSolution')
-        print(node.model)
-        return 'SAT'
-
-    for c in node.clauses:
-        if len(c) == 0:
-            return 'CONFLICT'
-
-    if used_model == []:
-        return 'UNSAT'
-
-    return 'CONTINUE'
-
-def DecideStatus(node, level, blevel):
-
-    new_clauses, new_model, used_model = unit_propagation(node)
-
-    # creates new node
-    node = Node(new_clauses, node.symbols, new_model, node.decision_model, node, level, blevel)
-
-    # possible conflict clause
-    conflict_clause = get_conflict_clause(node, used_model)
-
-    status = get_status(node, used_model)
-
-    return status, node, conflict_clause
-
-
-def Backtrack(node, blevel, conflict_clause):
-
-    #for level_count in range(blevel):
-
-    while node.level != blevel:
-        node = node.parent
-
-    if node != None:
-        if conflict_clause not in node.clauses:
-            node.clauses.append(conflict_clause)
-
-    return node
-
-def dpll(clauses, symbols, model):
-
-    backtrack = False       # indicates if a backtrack is performed
-
-    # initial node
-    init = Node(clauses, symbols, model, [], None, 0, 0 )
-    node = deepcopy(init)
-    node.level = 1
-    node.parent = init
-
-    level = 1
-    blevel = 1
-    while True:
-
-        node = DecideNextBranch(node, backtrack)
-        print("Try model: " + str(node.model))
-
-        if backtrack:
-            level = node.blevel
-            if node.parent != None:
-                blevel = node.parent.blevel
-            backtrack = False
-        else:
-            blevel = level
-
-        while True:
-            level = level + 1
-            status, node, conflict_clause = DecideStatus(node, level, blevel)
-            print("\nNew node:")
-            node.blevel = blevel
-            print("Clauses: " + str(node.clauses))
-            print("Status: " + status)
-            if status == "CONFLICT":
-                backtrack = True
-                print("BACKTRACKING " + str(level - node.blevel) + " level(s)")
-                print("Current: " + str(node.level))
-                print("Target: " + str(blevel))
-                node = Backtrack(node, blevel, conflict_clause)
-
-                print("Current: " + str(node.level))
-                print("Current: " + str(node.blevel))
-                if node.parent == None:
-                    return False
-                break
-
-            if status == "SAT":
-                return True
-            elif status == "UNSAT":
-                break
+    for clause in clause_list:
+        if clause == []:
+            return True
 
     return False
+
+def conflict_from_assignment(assign):
+
+    conflict = []
+
+    for symb, val in assign.items():
+        conflict.append(get_literal(symb, not val))
+
+    return conflict
+
+
+def factorize_clauses(node):
+    clauses = deepcopy(node.clauses)
+
+    # removes duplicates
+    unique_clauses = [] 
+    for c in clauses: 
+        if c not in unique_clauses:
+            unique_clauses.append(c)
+
+    new_clauses = deepcopy(unique_clauses)
+
+    for ci in unique_clauses:
+        if not implied(ci, unique_clauses):
+            # if at least on literal is not in a different clause, the 
+            #the two clauses dont imply each other
+            new_clauses.remove(ci)
+                    
+    node.clauses = new_clauses
+
+    return node
+
+# Does all possible propagations and checks if the cnf reaches a conflict
+def Deduce(node):
+
+    node = factorize_clauses(node)
+
+    conflict_list = []
+    unit_dict = None
+    while unit_dict != {}:
+        unit_dict = find_unit_clause(node.clauses, node.model)
+        print("Unit clause found: " + str(unit_dict))
+
+        conflict_list.append(conflict_from_assignment(unit_dict))
+
+        for symb, val in unit_dict.items():
+            if symb in node.model:
+                if val != node.model[symb]:
+                    return node,'CONFLICT', conflict_list
+
+        node.model.update(unit_dict)
+        node = unit_propagation(node, unit_dict)
+        # print(node.clauses)
+
+        if checks_for_conflict(node.clauses):
+            return node, 'CONFLICT', conflict_list
+
+        if node.clauses == []:
+            return node, 'SAT', []
+
+    return node, 'UNSAT', conflict_list
+
+def DecideNextBranch(node, level, backtrack):
+
+    # DLIS heuristic
+
+    max_clauses = None
+    for s in node.symbols:
+        if not s in node.model:
+
+            pos_lit = 0
+            unsat_clauses = 0
+            for c in node.clauses:
+                if s in c or neg(s) in c:
+                    unsat_clauses = unsat_clauses + 1
+                    if s in c:
+                        pos_lit += 1
+
+            if max_clauses == None:
+                max_clauses = unsat_clauses
+                max_symbol = s
+                pos_lit_min = pos_lit
+            elif unsat_clauses > max_clauses:
+                max_clauses = unsat_clauses
+                max_symbol = s
+                pos_lit_min = pos_lit
+
+    new_model = deepcopy(node.model)
+
+    if not backtrack:
+        new_model.update({max_symbol: True})
+        print("Trying: " + str(max_symbol) + " as True")
+    else:
+        new_model.update({max_symbol: False})
+        print("Trying: " + str(max_symbol) + " as False")
+    # new_model.append({max_symbol: True})
+
+    print("Current Mode: " + str(new_model))
+
+    node = Node(node.clauses, node.symbols, new_model, level, node)
+    node = unit_propagation(node, new_model) 
+
+    return node
+
+def Backtrack(node, conflict, level):
+
+    curr_model = node.model
+    while node.model == curr_model:
+    # for x in range(blevel):
+        node = node.parent
+        level = level - 1
+        # print(node.decision_level)
+
+    node.clauses.append(conflict)
+    return node
+
+def implied(test, clause_list):
+    for clause in clause_list:
+        implied = True
+        for t in test:
+            if t not in clause:
+                implied = False
+                
+        if implied:
+            return True
+    return False
+
+def AnalizeConflict(node, conflict_list):
+
+    l_min = None
+    for conflict in conflict_list:
+        l = len(conflict)
+
+        if conflict not in node.clauses and not implied(conflict, node.clauses):
+            if l_min == None:
+                min_conflict = conflict
+                l_min = l
+            elif l_min > l:
+                min_conflict = conflict
+                l_min = l
+
+    print("Learned Clause: " + str(min_conflict))
+    return min_conflict
+
+def dpll(clauses, symbols):
+
+    # node initialization
+    node = Node(clauses, symbols, {}, 0, None)
+    print("Initial clauses: " + str(clauses))
+    level = 0
+    backtrack = False
+
+    while(True):
+        level = level + 1
+        node = DecideNextBranch(node, level, backtrack)
+        backtrack = False
+
+        while(True):
+            level = level + 1
+            node, status, conflict_list= Deduce(node)
+            print(node.clauses)
+            print(status)
+
+            s = input('Continue?')
+            if status == 'CONFLICT':
+                conflict = AnalizeConflict(node, conflict_list)
+                print("BACKTRACKING")
+                node= Backtrack(node, conflict, level)
+                print("Current level: " + str(node.level))
+                print("Current assignments: " + str(node.model))
+                backtrack = True
+                if node.level == None:
+                    return False, {}
+                # break
+            elif status == 'SAT':
+                return True, node.model
+            else:
+                break
+
+        
