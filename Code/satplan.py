@@ -13,7 +13,7 @@ class Atom:
 		self.name =  a_name
 		self.terms_list = t_list
 		# False negative, True not negative
-		self.negative = None
+		self.negative = n
 
 class Action:
 	def __init__(self, ac_name, arg, p_list, e_list):
@@ -37,10 +37,10 @@ def read_atom(atom):
 
 	# identifies if the atom is negated
 	if name[0] == '-':
-		negative = True
+		negative = False
 		name = name[1:]
 	else:
-		negative = False
+		negative =True
 
 	# separates terms in a list
 	terms = term_str.split(',')
