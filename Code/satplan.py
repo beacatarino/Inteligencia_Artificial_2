@@ -19,8 +19,8 @@ class Action:
 	def __init__(self, ac_name, arg, p_list, e_list):
 		self.name = ac_name			# action name
 		self.arg_list = arg			# arguments list
-		self.precond_list = p_list 	# list of atoms
-		self.effect_list = e_list 	# list of atoms
+		self.precond_list = p_list 	# list of precond atoms
+		self.effect_list = e_list 	# list of effects atoms
 
 class State:
 	def __init__(self, t, a_list):
@@ -97,9 +97,13 @@ def fills_act_list(in_list, arg_list):
 
 	return out_list
 
-def read_data(file_name):
+def add_atom_dict(atoms_list,atoms_dictionary):
+	for atom in atoms_list:
+		atoms_dictionary[atom.name] = len(atom.terms_list)
 
-	# Segundo prof, se nao derem I temos de negar tudo ??? <-------------
+def read_data(file_name):
+	
+	atoms_dictionary = {}
 	initial = None
 	actions_list = []
 	constants_list = set([])
@@ -113,12 +117,14 @@ def read_data(file_name):
 				atoms_list, constants_lists = read_state_line(line_terms, \
 					constants_list)
 				initial = State(0, atoms_list)
+				add_atom_dict(atoms_list,atoms_dictionary)				
 
 			# goal state line
 			elif line[0] == 'G':
 				atoms_list, constants_lists = read_state_line(line_terms, \
 					constants_list)
 				goal = State(-1, atoms_list)
+				add_atom_dict(atoms_list,atoms_dictionary)				
 
 			# action line
 			elif line[0] == 'A':
@@ -128,7 +134,7 @@ def read_data(file_name):
 				action_name = atom.name
 
 				# finds point at which the preconds definition ends and the
-				#effects definition starts
+				# effects definition starts
 				n_point = 0
 				for term in line_terms:
 					if term == '->':
@@ -140,12 +146,14 @@ def read_data(file_name):
 
 				# gets list of precond atoms and effect atoms
 				precond_list = fills_act_list(line_terms[3:n_point], arg_list)
+				add_atom_dict(precond_list,atoms_dictionary)				
 				effect_list = fills_act_list(line_terms[n_point+1:], arg_list)
+				add_atom_dict(effect_list,atoms_dictionary)				
 
 				actions_list.append(Action(action_name, arg_list, \
 				precond_list, effect_list))
 
-	return (initial, goal, actions_list, constants_list)
+	return (initial, goal, actions_list, constants_list, atoms_dictionary)
 
 
 """
@@ -157,10 +165,10 @@ if len(sys.argv) != 2:
 
 file_name = sys.argv[1] # input file
 
-(initial, goal, actions_list, constants_list) = read_data(file_name)
+(initial, goal, actions_list, constants_list,atoms_dictionary) = read_data(file_name)
 # sat_solver(initial,goal,actions_list,constants_list)
 
-general_algorithm(initial, goal, actions_list, constants_list)
+general_algorithm(initial, goal, actions_list, constants_list,atoms_dictionary)
 
 """
 # PRINTS
