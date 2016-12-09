@@ -36,7 +36,6 @@ def general_algorithm(initial,goal,actions_list,constants_list,atoms_dictionary)
 
 		SAT_problem,SAT_dict,action_keys = encoder_main(initial,goal,actions_list,constants_list,h,atoms_dictionary)
 
-		print(SAT_problem)
 		answer = sat_solver(SAT_problem)
 		
 		if answer != False:

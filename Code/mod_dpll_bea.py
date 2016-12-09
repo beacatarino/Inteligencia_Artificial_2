@@ -142,6 +142,7 @@ def Deduce(node):
         for symb, val in unit_dict.items():
             if symb in node.model:
                 if val != node.model[symb]:
+                    print('model')
                     return node,'CONFLICT', conflict_list
 
         node.model.update(unit_dict)
@@ -149,6 +150,7 @@ def Deduce(node):
         # print(node.clauses)
 
         if checks_for_conflict(node.clauses):
+            print('check conf')
             return node, 'CONFLICT', conflict_list
 
         if node.clauses == []:
@@ -285,18 +287,20 @@ def dpll(clauses, symbols):
             level = level + 1
             node, status, conflict_list= Deduce(node)
             for a in assign_list:
-                print (a.id + ' ' + str(a.value))
+                print (a.id + ' ' + str(a.value) + ' ' + str(a.l))
             #print(node.clauses)
             print(status)
 
             #s = input('Continue?')
             if status == 'CONFLICT':
-                level = AnalizeConflict(node, conflict_list,assign_list)  
-                print(level)              
+                level = AnalizeConflict(node, conflict_list,assign_list)
                 if level == 0:
-                    return False, {}
+                    return False, {}  
+                print(level)                  
                 print("BACKTRACKING")
-                node,level = Backtrack(node,level,assign_list)
+                node,level = Backtrack(node,level,assign_list)                            
+                # if level == 0:
+                #     return False, {}
                 # node= Backtrack(node, conflict, level)
                 print("Current level: " + str(level))
                 #print("Current assignments: " + str(node.model))
@@ -305,6 +309,9 @@ def dpll(clauses, symbols):
             elif status == 'SAT':
                 return True, node.model
             else:
+                backtrack = False
+                level = 0
+                assign_list = []
                 break
 
         

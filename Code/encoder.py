@@ -253,11 +253,12 @@ def create_clauses(initial,goal,actions_list,constants_list,h,atoms_dict):
 #-----------------------------------------------------------------------
 def from_clause_to_SAT(clause_list,SAT_var_list):
 
-
+	f = open('SAT.txt','w')
 	SAT_problem = []
 
 	# p format variables clauses
 	SAT_problem = ['p cnf ' + str(len(SAT_var_list)) + ' ' + str(len(clause_list)) + '\n']
+	f.write('p cnf ' + str(len(SAT_var_list)) + ' ' + str(len(clause_list)) + '\n')
 
 	clau_problem = ''
 	for c in clause_list:
@@ -276,7 +277,10 @@ def from_clause_to_SAT(clause_list,SAT_var_list):
 		clau_problem += '0 '	# end of clause
 		#SAT_problem += '\n'
 
+	f.write(clau_problem)
 	SAT_problem.append(clau_problem)
+
+	f.close()
 	return SAT_problem
 
 

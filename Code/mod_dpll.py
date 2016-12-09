@@ -222,6 +222,7 @@ def AnalizeConflict(node, conflict_list):
                 l_min = l
 
     print("Learned Clause: " + str(min_conflict))
+    print("minconflict " + str(min_conflict))
     return min_conflict
 
 def dpll(clauses, symbols):

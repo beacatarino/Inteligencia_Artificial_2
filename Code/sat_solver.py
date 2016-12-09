@@ -1,4 +1,6 @@
 from mod_dpll_bea import dpll
+# from mod_dpll import dpll
+
 
 """
 
@@ -105,7 +107,7 @@ def sat_solver(cnf, verbose = False):
 
     sat,answer = dpll(clauses, symbols)
 
-    if sat:
+    if sat:        
         response = 'v '
         for (k,v) in answer.items():    
             if v == False:
