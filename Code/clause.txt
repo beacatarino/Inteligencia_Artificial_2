@@ -1,1006 +1,5927 @@
 ---------------------------------------SAT variables 
-1 redone['A'] t= 2
-2 redone['A'] t= 0
-3 redone['A'] t= 1
-4 done['A'] t= 2
-5 done['A'] t= 1
-6 done['A'] t= 0
-7 done['B'] t= 2
-8 done['B'] t= 0
-9 done['B'] t= 1
-10 ready['B'] t= 2
-11 ready['B'] t= 0
-12 ready['B'] t= 1
-13 ready['A'] t= 2
-14 ready['A'] t= 1
-15 ready['A'] t= 0
-16 redo['C'] t= 1
-17 redo['C'] t= 0
-18 redone['C'] t= 0
-19 redone['C'] t= 1
-20 redone['C'] t= 2
-21 do['B'] t= 0
-22 redo['B'] t= 0
-23 redo['B'] t= 1
-24 redo['A'] t= 1
-25 redo['A'] t= 0
-26 do['C'] t= 0
-27 do['C'] t= 1
-28 do['A'] t= 0
-29 do['A'] t= 1
-30 ready['C'] t= 1
-31 ready['C'] t= 0
-32 ready['C'] t= 2
-33 do['B'] t= 1
-34 redone['B'] t= 2
-35 redone['B'] t= 1
-36 redone['B'] t= 0
-37 done['C'] t= 1
-38 done['C'] t= 0
-39 done['C'] t= 2
+1 move['C', 'C', 'Table'] t= 1
+2 on['B', 'B'] t= 1
+3 clear['C'] t= 0
+4 on['B', 'Table'] t= 0
+5 move['C', 'Table', 'C'] t= 0
+6 move['C', 'Table', 'B'] t= 0
+7 on['Table', 'B'] t= 1
+8 move['C', 'B', 'C'] t= 0
+9 move['Table', 'C', 'Table'] t= 0
+10 on['C', 'C'] t= 0
+11 move['B', 'C', 'Table'] t= 0
+12 move['B', 'Table', 'C'] t= 0
+13 move['C', 'B', 'Table'] t= 0
+14 clear['B'] t= 1
+15 clear['B'] t= 0
+16 move['Table', 'Table', 'B'] t= 0
+17 clear['Table'] t= 1
+18 on['C', 'B'] t= 2
+19 move['B', 'B', 'C'] t= 1
+20 on['B', 'C'] t= 2
+21 clear['C'] t= 1
+22 on['C', 'Table'] t= 2
+23 on['Table', 'B'] t= 0
+24 clear['Table'] t= 0
+25 on['B', 'C'] t= 0
+26 on['B', 'Table'] t= 1
+27 on['C', 'C'] t= 1
+28 move['C', 'C', 'Table'] t= 0
+29 move['C', 'Table', 'C'] t= 1
+30 move2table['B', 'C'] t= 0
+31 move['B', 'C', 'B'] t= 0
+32 clear['Table'] t= 2
+33 on['B', 'B'] t= 0
+34 on['Table', 'Table'] t= 1
+35 move['Table', 'C', 'Table'] t= 1
+36 clear['B'] t= 2
+37 move2table['B', 'B'] t= 0
+38 on['Table', 'Table'] t= 2
+39 move['Table', 'Table', 'C'] t= 1
+40 on['C', 'Table'] t= 0
+41 move['Table', 'B', 'Table'] t= 1
+42 move2table['C', 'B'] t= 0
+43 on['Table', 'C'] t= 1
+44 move['B', 'Table', 'C'] t= 1
+45 move['B', 'B', 'C'] t= 0
+46 move['C', 'C', 'B'] t= 1
+47 move2table['Table', 'C'] t= 0
+48 move['B', 'C', 'Table'] t= 1
+49 move2table['C', 'C'] t= 0
+50 move['C', 'B', 'Table'] t= 1
+51 move['C', 'B', 'C'] t= 1
+52 on['Table', 'C'] t= 2
+53 on['B', 'C'] t= 1
+54 move2table['B', 'C'] t= 1
+55 clear['C'] t= 2
+56 on['C', 'C'] t= 2
+57 on['C', 'Table'] t= 1
+58 on['Table', 'B'] t= 2
+59 move2table['B', 'B'] t= 1
+60 move2table['C', 'B'] t= 1
+61 on['B', 'B'] t= 2
+62 move['C', 'Table', 'B'] t= 1
+63 move['C', 'C', 'B'] t= 0
+64 move2table['Table', 'B'] t= 0
+65 move['B', 'Table', 'B'] t= 0
+66 on['Table', 'Table'] t= 0
+67 move['Table', 'Table', 'C'] t= 0
+68 on['C', 'B'] t= 0
+69 move['Table', 'B', 'C'] t= 0
+70 move['Table', 'B', 'C'] t= 1
+71 move2table['C', 'C'] t= 1
+72 move2table['Table', 'B'] t= 1
+73 move['B', 'Table', 'B'] t= 1
+74 on['B', 'Table'] t= 2
+75 move['Table', 'C', 'B'] t= 1
+76 move2table['Table', 'C'] t= 1
+77 on['C', 'B'] t= 1
+78 move['Table', 'C', 'B'] t= 0
+79 move['B', 'C', 'B'] t= 1
+80 move['Table', 'B', 'Table'] t= 0
+81 move['B', 'B', 'Table'] t= 1
+82 on['Table', 'C'] t= 0
+83 move['B', 'B', 'Table'] t= 0
+84 move['Table', 'Table', 'B'] t= 1
 
 ---------------------------------------CLAUSES 
 c 1:
-t=0 n=True ready  ['A']
+t=0 n=True on  ['B', 'C']
 c 2:
-t=0 n=True ready  ['B']
+t=0 n=True on  ['C', 'Table']
 c 3:
-t=0 n=True ready  ['C']
+t=0 n=True clear  ['B']
 c 4:
-t=0 n=False redone  ['A']
+t=0 n=False clear  ['C']
 c 5:
-t=0 n=False redone  ['C']
+t=0 n=False clear  ['Table']
 c 6:
-t=0 n=False redone  ['B']
+t=0 n=False on  ['B', 'B']
 c 7:
-t=0 n=False done  ['A']
+t=0 n=False on  ['B', 'Table']
 c 8:
-t=0 n=False done  ['C']
+t=0 n=False on  ['C', 'B']
 c 9:
-t=0 n=False done  ['B']
+t=0 n=False on  ['C', 'C']
 c 10:
-t=2 n=True redone  ['B']
+t=0 n=False on  ['Table', 'B']
 c 11:
-t=0 n=False do  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False on  ['Table', 'C']
 c 12:
-t=0 n=False do  ['A']
-t=1 n=True done  ['A']
+t=0 n=False on  ['Table', 'Table']
 c 13:
-t=0 n=False do  ['A']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=2 n=True on  ['C', 'B']
 c 14:
-t=0 n=False do  ['A']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=2 n=True on  ['B', 'Table']
 c 15:
-t=0 n=False do  ['A']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=2 n=True clear  ['C']
 c 16:
-t=0 n=False do  ['A']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=True on  ['B', 'B']
 c 17:
-t=0 n=False do  ['A']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=True clear  ['B']
 c 18:
-t=0 n=False do  ['A']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=True clear  ['C']
 c 19:
-t=0 n=False do  ['A']
-t=1 n=False redone  ['A']
-t=0 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['B', 'B']
 c 20:
-t=0 n=False do  ['A']
-t=0 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=True on  ['B', 'C']
 c 21:
-t=0 n=False do  ['A']
-t=1 n=False redone  ['C']
-t=0 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False clear  ['C']
 c 22:
-t=0 n=False do  ['A']
-t=0 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=True clear  ['B']
 c 23:
-t=0 n=False do  ['A']
-t=1 n=False redone  ['B']
-t=0 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
 c 24:
-t=0 n=False do  ['A']
-t=0 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
 c 25:
-t=0 n=False do  ['A']
-t=1 n=False done  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 26:
-t=0 n=False do  ['A']
-t=0 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 27:
-t=0 n=False do  ['A']
-t=1 n=False done  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 28:
-t=0 n=False do  ['A']
-t=0 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 29:
-t=0 n=False do  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 30:
-t=0 n=False do  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 31:
-t=0 n=False do  ['C']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 32:
-t=0 n=False do  ['C']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 33:
-t=0 n=False do  ['C']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 34:
-t=0 n=False do  ['C']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 35:
-t=0 n=False do  ['C']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 36:
-t=0 n=False do  ['C']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 37:
-t=0 n=False do  ['C']
-t=1 n=False redone  ['A']
-t=0 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 38:
-t=0 n=False do  ['C']
-t=0 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 39:
-t=0 n=False do  ['C']
-t=1 n=False redone  ['C']
-t=0 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=True on  ['B', 'B']
 c 40:
-t=0 n=False do  ['C']
-t=0 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=True clear  ['B']
 c 41:
-t=0 n=False do  ['C']
-t=1 n=False redone  ['B']
-t=0 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=True clear  ['Table']
 c 42:
-t=0 n=False do  ['C']
-t=0 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['B', 'B']
 c 43:
-t=0 n=False do  ['C']
-t=1 n=False done  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 44:
-t=0 n=False do  ['C']
-t=0 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False clear  ['Table']
 c 45:
-t=0 n=False do  ['C']
-t=1 n=False done  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=True clear  ['B']
 c 46:
-t=0 n=False do  ['C']
-t=0 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
 c 47:
-t=0 n=False do  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
 c 48:
-t=0 n=False do  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 49:
-t=0 n=False do  ['B']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 50:
-t=0 n=False do  ['B']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 51:
-t=0 n=False do  ['B']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 52:
-t=0 n=False do  ['B']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 53:
-t=0 n=False do  ['B']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 54:
-t=0 n=False do  ['B']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 55:
-t=0 n=False do  ['B']
-t=1 n=False redone  ['A']
-t=0 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 56:
-t=0 n=False do  ['B']
-t=0 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 57:
-t=0 n=False do  ['B']
-t=1 n=False redone  ['C']
-t=0 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 58:
-t=0 n=False do  ['B']
-t=0 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 59:
-t=0 n=False do  ['B']
-t=1 n=False redone  ['B']
-t=0 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 60:
-t=0 n=False do  ['B']
-t=0 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 61:
-t=0 n=False do  ['B']
-t=1 n=False done  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 62:
-t=0 n=False do  ['B']
-t=0 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=True on  ['B', 'C']
 c 63:
-t=0 n=False do  ['B']
-t=1 n=False done  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=True clear  ['B']
 c 64:
-t=0 n=False do  ['B']
-t=0 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=True clear  ['B']
 c 65:
-t=0 n=False redo  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['B', 'C']
 c 66:
-t=0 n=False redo  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=True on  ['B', 'B']
 c 67:
-t=0 n=False redo  ['A']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False clear  ['B']
 c 68:
-t=0 n=False redo  ['A']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=True clear  ['C']
 c 69:
-t=0 n=False redo  ['A']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
 c 70:
-t=0 n=False redo  ['A']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
 c 71:
-t=0 n=False redo  ['A']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 72:
-t=0 n=False redo  ['A']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 73:
-t=0 n=False redo  ['A']
-t=1 n=False redone  ['C']
-t=0 n=True redone  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 74:
-t=0 n=False redo  ['A']
-t=0 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 75:
-t=0 n=False redo  ['A']
-t=1 n=False redone  ['B']
-t=0 n=True redone  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 76:
-t=0 n=False redo  ['A']
-t=0 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 77:
-t=0 n=False redo  ['A']
-t=1 n=False done  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 78:
-t=0 n=False redo  ['A']
-t=0 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 79:
-t=0 n=False redo  ['A']
-t=1 n=False done  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 80:
-t=0 n=False redo  ['A']
-t=0 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 81:
-t=0 n=False redo  ['A']
-t=1 n=False done  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 82:
-t=0 n=False redo  ['A']
-t=0 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 83:
-t=0 n=False redo  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 84:
-t=0 n=False redo  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 85:
-t=0 n=False redo  ['C']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=True on  ['B', 'C']
 c 86:
-t=0 n=False redo  ['C']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=True clear  ['B']
 c 87:
-t=0 n=False redo  ['C']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=True clear  ['Table']
 c 88:
-t=0 n=False redo  ['C']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['B', 'C']
 c 89:
-t=0 n=False redo  ['C']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 90:
-t=0 n=False redo  ['C']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False clear  ['Table']
 c 91:
-t=0 n=False redo  ['C']
-t=1 n=False redone  ['A']
-t=0 n=True redone  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=True clear  ['C']
 c 92:
-t=0 n=False redo  ['C']
-t=0 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
 c 93:
-t=0 n=False redo  ['C']
-t=1 n=False redone  ['B']
-t=0 n=True redone  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
 c 94:
-t=0 n=False redo  ['C']
-t=0 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 95:
-t=0 n=False redo  ['C']
-t=1 n=False done  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 96:
-t=0 n=False redo  ['C']
-t=0 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 97:
-t=0 n=False redo  ['C']
-t=1 n=False done  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 98:
-t=0 n=False redo  ['C']
-t=0 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 99:
-t=0 n=False redo  ['C']
-t=1 n=False done  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 100:
-t=0 n=False redo  ['C']
-t=0 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 101:
-t=0 n=False redo  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 102:
-t=0 n=False redo  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 103:
-t=0 n=False redo  ['B']
-t=1 n=False ready  ['A']
-t=0 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 104:
-t=0 n=False redo  ['B']
-t=0 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 105:
-t=0 n=False redo  ['B']
-t=1 n=False ready  ['C']
-t=0 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 106:
-t=0 n=False redo  ['B']
-t=0 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 107:
-t=0 n=False redo  ['B']
-t=1 n=False ready  ['B']
-t=0 n=True ready  ['B']
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 108:
-t=0 n=False redo  ['B']
-t=0 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=True on  ['B', 'Table']
 c 109:
-t=0 n=False redo  ['B']
-t=1 n=False redone  ['A']
-t=0 n=True redone  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=True clear  ['B']
 c 110:
-t=0 n=False redo  ['B']
-t=0 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=True clear  ['B']
 c 111:
-t=0 n=False redo  ['B']
-t=1 n=False redone  ['C']
-t=0 n=True redone  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['B', 'Table']
 c 112:
-t=0 n=False redo  ['B']
-t=0 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=True on  ['B', 'B']
 c 113:
-t=0 n=False redo  ['B']
-t=1 n=False done  ['A']
-t=0 n=True done  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False clear  ['B']
 c 114:
-t=0 n=False redo  ['B']
-t=0 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=True clear  ['Table']
 c 115:
-t=0 n=False redo  ['B']
-t=1 n=False done  ['C']
-t=0 n=True done  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
 c 116:
-t=0 n=False redo  ['B']
-t=0 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
 c 117:
-t=0 n=False redo  ['B']
-t=1 n=False done  ['B']
-t=0 n=True done  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 118:
-t=0 n=False redo  ['B']
-t=0 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 119:
-t=0 n=True do  ['A']
-t=0 n=True do  ['C']
-t=0 n=True do  ['B']
-t=0 n=True redo  ['A']
-t=0 n=True redo  ['C']
-t=0 n=True redo  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 120:
-t=0 n=False do  ['A']
-t=0 n=False do  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 121:
-t=0 n=False do  ['A']
-t=0 n=False do  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 122:
-t=0 n=False do  ['A']
-t=0 n=False redo  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 123:
-t=0 n=False do  ['A']
-t=0 n=False redo  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 124:
-t=0 n=False do  ['A']
-t=0 n=False redo  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 125:
-t=0 n=False do  ['C']
-t=0 n=False do  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 126:
-t=0 n=False do  ['C']
-t=0 n=False redo  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 127:
-t=0 n=False do  ['C']
-t=0 n=False redo  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 128:
-t=0 n=False do  ['C']
-t=0 n=False redo  ['B']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 129:
-t=0 n=False do  ['B']
-t=0 n=False redo  ['A']
+t=0 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 130:
-t=0 n=False do  ['B']
-t=0 n=False redo  ['C']
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 131:
-t=0 n=False do  ['B']
-t=0 n=False redo  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=True on  ['B', 'Table']
 c 132:
-t=0 n=False redo  ['A']
-t=0 n=False redo  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=True clear  ['B']
 c 133:
-t=0 n=False redo  ['A']
-t=0 n=False redo  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=True clear  ['C']
 c 134:
-t=0 n=False redo  ['C']
-t=0 n=False redo  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['B', 'Table']
 c 135:
-t=1 n=False do  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=True on  ['B', 'C']
 c 136:
-t=1 n=False do  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False clear  ['C']
 c 137:
-t=1 n=False do  ['A']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=True clear  ['Table']
 c 138:
-t=1 n=False do  ['A']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
 c 139:
-t=1 n=False do  ['A']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
 c 140:
-t=1 n=False do  ['A']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 141:
-t=1 n=False do  ['A']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 142:
-t=1 n=False do  ['A']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 143:
-t=1 n=False do  ['A']
-t=2 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 144:
-t=1 n=False do  ['A']
-t=1 n=False redone  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 145:
-t=1 n=False do  ['A']
-t=2 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 146:
-t=1 n=False do  ['A']
-t=1 n=False redone  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 147:
-t=1 n=False do  ['A']
-t=2 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 148:
-t=1 n=False do  ['A']
-t=1 n=False redone  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 149:
-t=1 n=False do  ['A']
-t=2 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 150:
-t=1 n=False do  ['A']
-t=1 n=False done  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 151:
-t=1 n=False do  ['A']
-t=2 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 152:
-t=1 n=False do  ['A']
-t=1 n=False done  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 153:
-t=1 n=False do  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 154:
-t=1 n=False do  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=True on  ['C', 'B']
 c 155:
-t=1 n=False do  ['C']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=True clear  ['C']
 c 156:
-t=1 n=False do  ['C']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=True clear  ['C']
 c 157:
-t=1 n=False do  ['C']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['C', 'B']
 c 158:
-t=1 n=False do  ['C']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=True on  ['C', 'C']
 c 159:
-t=1 n=False do  ['C']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False clear  ['C']
 c 160:
-t=1 n=False do  ['C']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=True clear  ['B']
 c 161:
-t=1 n=False do  ['C']
-t=2 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
 c 162:
-t=1 n=False do  ['C']
-t=1 n=False redone  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
 c 163:
-t=1 n=False do  ['C']
-t=2 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 164:
-t=1 n=False do  ['C']
-t=1 n=False redone  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 165:
-t=1 n=False do  ['C']
-t=2 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 166:
-t=1 n=False do  ['C']
-t=1 n=False redone  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 167:
-t=1 n=False do  ['C']
-t=2 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 168:
-t=1 n=False do  ['C']
-t=1 n=False done  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 169:
-t=1 n=False do  ['C']
-t=2 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 170:
-t=1 n=False do  ['C']
-t=1 n=False done  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 171:
-t=1 n=False do  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 172:
-t=1 n=False do  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 173:
-t=1 n=False do  ['B']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 174:
-t=1 n=False do  ['B']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 175:
-t=1 n=False do  ['B']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 176:
-t=1 n=False do  ['B']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 177:
-t=1 n=False do  ['B']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=True on  ['C', 'B']
 c 178:
-t=1 n=False do  ['B']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=True clear  ['C']
 c 179:
-t=1 n=False do  ['B']
-t=2 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=True clear  ['Table']
 c 180:
-t=1 n=False do  ['B']
-t=1 n=False redone  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['C', 'B']
 c 181:
-t=1 n=False do  ['B']
-t=2 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 182:
-t=1 n=False do  ['B']
-t=1 n=False redone  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False clear  ['Table']
 c 183:
-t=1 n=False do  ['B']
-t=2 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=True clear  ['B']
 c 184:
-t=1 n=False do  ['B']
-t=1 n=False redone  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
 c 185:
-t=1 n=False do  ['B']
-t=2 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
 c 186:
-t=1 n=False do  ['B']
-t=1 n=False done  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 187:
-t=1 n=False do  ['B']
-t=2 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 188:
-t=1 n=False do  ['B']
-t=1 n=False done  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 189:
-t=1 n=False redo  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 190:
-t=1 n=False redo  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 191:
-t=1 n=False redo  ['A']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 192:
-t=1 n=False redo  ['A']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
 c 193:
-t=1 n=False redo  ['A']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
 c 194:
-t=1 n=False redo  ['A']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 195:
-t=1 n=False redo  ['A']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 196:
-t=1 n=False redo  ['A']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 197:
-t=1 n=False redo  ['A']
-t=2 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 198:
-t=1 n=False redo  ['A']
-t=1 n=False redone  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 199:
-t=1 n=False redo  ['A']
-t=2 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 200:
-t=1 n=False redo  ['A']
-t=1 n=False redone  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=True on  ['C', 'C']
 c 201:
-t=1 n=False redo  ['A']
-t=2 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=True clear  ['C']
 c 202:
-t=1 n=False redo  ['A']
-t=1 n=False done  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=True clear  ['B']
 c 203:
-t=1 n=False redo  ['A']
-t=2 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['C', 'C']
 c 204:
-t=1 n=False redo  ['A']
-t=1 n=False done  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=True on  ['C', 'B']
 c 205:
-t=1 n=False redo  ['A']
-t=2 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False clear  ['B']
 c 206:
-t=1 n=False redo  ['A']
-t=1 n=False done  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=True clear  ['C']
 c 207:
-t=1 n=False redo  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
 c 208:
-t=1 n=False redo  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
 c 209:
-t=1 n=False redo  ['C']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 210:
-t=1 n=False redo  ['C']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 211:
-t=1 n=False redo  ['C']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 212:
-t=1 n=False redo  ['C']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 213:
-t=1 n=False redo  ['C']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 214:
-t=1 n=False redo  ['C']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 215:
-t=1 n=False redo  ['C']
-t=2 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
 c 216:
-t=1 n=False redo  ['C']
-t=1 n=False redone  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 217:
-t=1 n=False redo  ['C']
-t=2 n=False redone  ['B']
-t=1 n=True redone  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 218:
-t=1 n=False redo  ['C']
-t=1 n=False redone  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 219:
-t=1 n=False redo  ['C']
-t=2 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 220:
-t=1 n=False redo  ['C']
-t=1 n=False done  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 221:
-t=1 n=False redo  ['C']
-t=2 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 222:
-t=1 n=False redo  ['C']
-t=1 n=False done  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 223:
-t=1 n=False redo  ['C']
-t=2 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=True on  ['C', 'C']
 c 224:
-t=1 n=False redo  ['C']
-t=1 n=False done  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=True clear  ['C']
 c 225:
-t=1 n=False redo  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=True clear  ['Table']
 c 226:
-t=1 n=False redo  ['B']
-t=2 n=True redone  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['C', 'C']
 c 227:
-t=1 n=False redo  ['B']
-t=2 n=False ready  ['A']
-t=1 n=True ready  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=True on  ['C', 'Table']
 c 228:
-t=1 n=False redo  ['B']
-t=1 n=False ready  ['A']
-t=2 n=True ready  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False clear  ['Table']
 c 229:
-t=1 n=False redo  ['B']
-t=2 n=False ready  ['C']
-t=1 n=True ready  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=True clear  ['C']
 c 230:
-t=1 n=False redo  ['B']
-t=1 n=False ready  ['C']
-t=2 n=True ready  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
 c 231:
-t=1 n=False redo  ['B']
-t=2 n=False ready  ['B']
-t=1 n=True ready  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
 c 232:
-t=1 n=False redo  ['B']
-t=1 n=False ready  ['B']
-t=2 n=True ready  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 233:
-t=1 n=False redo  ['B']
-t=2 n=False redone  ['A']
-t=1 n=True redone  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 234:
-t=1 n=False redo  ['B']
-t=1 n=False redone  ['A']
-t=2 n=True redone  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 235:
-t=1 n=False redo  ['B']
-t=2 n=False redone  ['C']
-t=1 n=True redone  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
 c 236:
-t=1 n=False redo  ['B']
-t=1 n=False redone  ['C']
-t=2 n=True redone  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
 c 237:
-t=1 n=False redo  ['B']
-t=2 n=False done  ['A']
-t=1 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
 c 238:
-t=1 n=False redo  ['B']
-t=1 n=False done  ['A']
-t=2 n=True done  ['A']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
 c 239:
-t=1 n=False redo  ['B']
-t=2 n=False done  ['C']
-t=1 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
 c 240:
-t=1 n=False redo  ['B']
-t=1 n=False done  ['C']
-t=2 n=True done  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
 c 241:
-t=1 n=False redo  ['B']
-t=2 n=False done  ['B']
-t=1 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
 c 242:
-t=1 n=False redo  ['B']
-t=1 n=False done  ['B']
-t=2 n=True done  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
 c 243:
-t=1 n=True do  ['A']
-t=1 n=True do  ['C']
-t=1 n=True do  ['B']
-t=1 n=True redo  ['A']
-t=1 n=True redo  ['C']
-t=1 n=True redo  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
 c 244:
-t=1 n=False do  ['A']
-t=1 n=False do  ['C']
+t=0 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
 c 245:
-t=1 n=False do  ['A']
-t=1 n=False do  ['B']
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
 c 246:
-t=1 n=False do  ['A']
-t=1 n=False redo  ['A']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=True on  ['C', 'Table']
 c 247:
-t=1 n=False do  ['A']
-t=1 n=False redo  ['C']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=True clear  ['C']
 c 248:
-t=1 n=False do  ['A']
-t=1 n=False redo  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=True clear  ['B']
 c 249:
-t=1 n=False do  ['C']
-t=1 n=False do  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['C', 'Table']
 c 250:
-t=1 n=False do  ['C']
-t=1 n=False redo  ['A']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=True on  ['C', 'B']
 c 251:
-t=1 n=False do  ['C']
-t=1 n=False redo  ['C']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False clear  ['B']
 c 252:
-t=1 n=False do  ['C']
-t=1 n=False redo  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=True clear  ['Table']
 c 253:
-t=1 n=False do  ['B']
-t=1 n=False redo  ['A']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
 c 254:
-t=1 n=False do  ['B']
-t=1 n=False redo  ['C']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
 c 255:
-t=1 n=False do  ['B']
-t=1 n=False redo  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
 c 256:
-t=1 n=False redo  ['A']
-t=1 n=False redo  ['C']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
 c 257:
-t=1 n=False redo  ['A']
-t=1 n=False redo  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
 c 258:
-t=1 n=False redo  ['C']
-t=1 n=False redo  ['B']
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 259:
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 260:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 261:
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 262:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 263:
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 264:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 265:
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 266:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 267:
+t=0 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 268:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 269:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=True on  ['C', 'Table']
+c 270:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=True clear  ['C']
+c 271:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=True clear  ['C']
+c 272:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['C', 'Table']
+c 273:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=True on  ['C', 'C']
+c 274:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False clear  ['C']
+c 275:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=True clear  ['Table']
+c 276:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 277:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 278:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 279:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 280:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 281:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 282:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 283:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 284:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 285:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 286:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 287:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 288:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 289:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 290:
+t=0 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 291:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 292:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=True on  ['Table', 'B']
+c 293:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=True clear  ['Table']
+c 294:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=True clear  ['C']
+c 295:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['Table', 'B']
+c 296:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=True on  ['Table', 'C']
+c 297:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False clear  ['C']
+c 298:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=True clear  ['B']
+c 299:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 300:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 301:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 302:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 303:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 304:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 305:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 306:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 307:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 308:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 309:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 310:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 311:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 312:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 313:
+t=0 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 314:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 315:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=True on  ['Table', 'B']
+c 316:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=True clear  ['Table']
+c 317:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=True clear  ['Table']
+c 318:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['Table', 'B']
+c 319:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 320:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False clear  ['Table']
+c 321:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=True clear  ['B']
+c 322:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
+c 323:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 324:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 325:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 326:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 327:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 328:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 329:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 330:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 331:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 332:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 333:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 334:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 335:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 336:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 337:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 338:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=True on  ['Table', 'C']
+c 339:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=True clear  ['Table']
+c 340:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=True clear  ['B']
+c 341:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['Table', 'C']
+c 342:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=True on  ['Table', 'B']
+c 343:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False clear  ['B']
+c 344:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=True clear  ['C']
+c 345:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 346:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 347:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 348:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 349:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 350:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 351:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 352:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 353:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 354:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 355:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 356:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 357:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 358:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 359:
+t=0 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 360:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 361:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=True on  ['Table', 'C']
+c 362:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=True clear  ['Table']
+c 363:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=True clear  ['Table']
+c 364:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['Table', 'C']
+c 365:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 366:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False clear  ['Table']
+c 367:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=True clear  ['C']
+c 368:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 369:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 370:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 371:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 372:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 373:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 374:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 375:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 376:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 377:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 378:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 379:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 380:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 381:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 382:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 383:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 384:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=True on  ['Table', 'Table']
+c 385:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=True clear  ['Table']
+c 386:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=True clear  ['B']
+c 387:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['Table', 'Table']
+c 388:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 389:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False clear  ['B']
+c 390:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=True clear  ['Table']
+c 391:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
+c 392:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 393:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 394:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 395:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 396:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 397:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 398:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 399:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 400:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 401:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 402:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 403:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 404:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 405:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 406:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 407:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=True on  ['Table', 'Table']
+c 408:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=True clear  ['Table']
+c 409:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=True clear  ['C']
+c 410:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['Table', 'Table']
+c 411:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 412:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False clear  ['C']
+c 413:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=True clear  ['Table']
+c 414:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 415:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 416:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 417:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 418:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 419:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 420:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 421:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 422:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 423:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 424:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 425:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 426:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 427:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 428:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 429:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 430:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 431:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=True clear  ['B']
+c 432:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['B', 'B']
+c 433:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=True on  ['B', 'Table']
+c 434:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=True clear  ['B']
+c 435:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
+c 436:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 437:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 438:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 439:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 440:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 441:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 442:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 443:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 444:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 445:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 446:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 447:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 448:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 449:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 450:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 451:
+t=0 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 452:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 453:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 454:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=True clear  ['B']
+c 455:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['B', 'C']
+c 456:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=True on  ['B', 'Table']
+c 457:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=True clear  ['C']
+c 458:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 459:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 460:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 461:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 462:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 463:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 464:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 465:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 466:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 467:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 468:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 469:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 470:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 471:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 472:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 473:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 474:
+t=0 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 475:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 476:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 477:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=True clear  ['C']
+c 478:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['C', 'B']
+c 479:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=True on  ['C', 'Table']
+c 480:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=True clear  ['B']
+c 481:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
+c 482:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 483:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 484:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 485:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 486:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 487:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 488:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 489:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 490:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 491:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 492:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 493:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 494:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 495:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 496:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 497:
+t=0 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 498:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 499:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 500:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=True clear  ['C']
+c 501:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['C', 'C']
+c 502:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=True on  ['C', 'Table']
+c 503:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=True clear  ['C']
+c 504:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 505:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 506:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 507:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 508:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 509:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 510:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 511:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 512:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 513:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 514:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 515:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 516:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 517:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 518:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 519:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 520:
+t=0 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=0 n=True on  ['Table', 'Table']
+c 521:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 522:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 523:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=True clear  ['Table']
+c 524:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['Table', 'B']
+c 525:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=True on  ['Table', 'Table']
+c 526:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=True clear  ['B']
+c 527:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False clear  ['C']
+t=0 n=True clear  ['C']
+c 528:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 529:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 530:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 531:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 532:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 533:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 534:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 535:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 536:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 537:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 538:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 539:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 540:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 541:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 542:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 543:
+t=0 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 544:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 545:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=True on  ['Table', 'C']
+c 546:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=True clear  ['Table']
+c 547:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['Table', 'C']
+c 548:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=True on  ['Table', 'Table']
+c 549:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=True clear  ['C']
+c 550:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False clear  ['B']
+t=0 n=True clear  ['B']
+c 551:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 552:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False clear  ['Table']
+t=0 n=True clear  ['Table']
+c 553:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 554:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=0 n=True on  ['B', 'B']
+c 555:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 556:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=0 n=True on  ['B', 'C']
+c 557:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 558:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=0 n=True on  ['B', 'Table']
+c 559:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 560:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=0 n=True on  ['C', 'B']
+c 561:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 562:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=0 n=True on  ['C', 'C']
+c 563:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 564:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=0 n=True on  ['C', 'Table']
+c 565:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 566:
+t=0 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=0 n=True on  ['Table', 'B']
+c 567:
+t=0 n=False move2table  ['Table', 'C']
+t=0 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 568:
+t=0 n=True move  ['B', 'B', 'C']
+t=0 n=True move  ['B', 'B', 'Table']
+t=0 n=True move  ['B', 'C', 'B']
+t=0 n=True move  ['B', 'C', 'Table']
+t=0 n=True move  ['B', 'Table', 'B']
+t=0 n=True move  ['B', 'Table', 'C']
+t=0 n=True move  ['C', 'B', 'C']
+t=0 n=True move  ['C', 'B', 'Table']
+t=0 n=True move  ['C', 'C', 'B']
+t=0 n=True move  ['C', 'C', 'Table']
+t=0 n=True move  ['C', 'Table', 'B']
+t=0 n=True move  ['C', 'Table', 'C']
+t=0 n=True move  ['Table', 'B', 'C']
+t=0 n=True move  ['Table', 'B', 'Table']
+t=0 n=True move  ['Table', 'C', 'B']
+t=0 n=True move  ['Table', 'C', 'Table']
+t=0 n=True move  ['Table', 'Table', 'B']
+t=0 n=True move  ['Table', 'Table', 'C']
+t=0 n=True move2table  ['B', 'B']
+t=0 n=True move2table  ['B', 'C']
+t=0 n=True move2table  ['C', 'B']
+t=0 n=True move2table  ['C', 'C']
+t=0 n=True move2table  ['Table', 'B']
+t=0 n=True move2table  ['Table', 'C']
+c 569:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['B', 'B', 'Table']
+c 570:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['B', 'C', 'B']
+c 571:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['B', 'C', 'Table']
+c 572:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['B', 'Table', 'B']
+c 573:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['B', 'Table', 'C']
+c 574:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'B', 'C']
+c 575:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'B', 'Table']
+c 576:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'C', 'B']
+c 577:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'C', 'Table']
+c 578:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'Table', 'B']
+c 579:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['C', 'Table', 'C']
+c 580:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'B', 'C']
+c 581:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 582:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'B']
+c 583:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 584:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 585:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 586:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 587:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 588:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 589:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 590:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 591:
+t=0 n=False move  ['B', 'B', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 592:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['B', 'C', 'B']
+c 593:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['B', 'C', 'Table']
+c 594:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['B', 'Table', 'B']
+c 595:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['B', 'Table', 'C']
+c 596:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'B', 'C']
+c 597:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'B', 'Table']
+c 598:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'C', 'B']
+c 599:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'C', 'Table']
+c 600:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'Table', 'B']
+c 601:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['C', 'Table', 'C']
+c 602:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'B', 'C']
+c 603:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 604:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'B']
+c 605:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 606:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 607:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 608:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 609:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 610:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 611:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 612:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 613:
+t=0 n=False move  ['B', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 614:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['B', 'C', 'Table']
+c 615:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['B', 'Table', 'B']
+c 616:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['B', 'Table', 'C']
+c 617:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'B', 'C']
+c 618:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'B', 'Table']
+c 619:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'C', 'B']
+c 620:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'C', 'Table']
+c 621:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'Table', 'B']
+c 622:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['C', 'Table', 'C']
+c 623:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'B', 'C']
+c 624:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 625:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'C', 'B']
+c 626:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 627:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 628:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 629:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 630:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 631:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 632:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 633:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 634:
+t=0 n=False move  ['B', 'C', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 635:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['B', 'Table', 'B']
+c 636:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['B', 'Table', 'C']
+c 637:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'B', 'C']
+c 638:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'B', 'Table']
+c 639:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'C', 'B']
+c 640:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'C', 'Table']
+c 641:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'Table', 'B']
+c 642:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['C', 'Table', 'C']
+c 643:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'B', 'C']
+c 644:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 645:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'C', 'B']
+c 646:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 647:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 648:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 649:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 650:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 651:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 652:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 653:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 654:
+t=0 n=False move  ['B', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 655:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['B', 'Table', 'C']
+c 656:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'B', 'C']
+c 657:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'B', 'Table']
+c 658:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'C', 'B']
+c 659:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'C', 'Table']
+c 660:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'Table', 'B']
+c 661:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['C', 'Table', 'C']
+c 662:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'B', 'C']
+c 663:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 664:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'C', 'B']
+c 665:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 666:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 667:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 668:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 669:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 670:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 671:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 672:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 673:
+t=0 n=False move  ['B', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 674:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'B', 'C']
+c 675:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'B', 'Table']
+c 676:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'C', 'B']
+c 677:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'C', 'Table']
+c 678:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'Table', 'B']
+c 679:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['C', 'Table', 'C']
+c 680:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'B', 'C']
+c 681:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 682:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'C', 'B']
+c 683:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 684:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 685:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 686:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 687:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 688:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 689:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 690:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 691:
+t=0 n=False move  ['B', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 692:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['C', 'B', 'Table']
+c 693:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['C', 'C', 'B']
+c 694:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['C', 'C', 'Table']
+c 695:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['C', 'Table', 'B']
+c 696:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['C', 'Table', 'C']
+c 697:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'B', 'C']
+c 698:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 699:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'B']
+c 700:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 701:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 702:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 703:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 704:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 705:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 706:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 707:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 708:
+t=0 n=False move  ['C', 'B', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 709:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['C', 'C', 'B']
+c 710:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['C', 'C', 'Table']
+c 711:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['C', 'Table', 'B']
+c 712:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['C', 'Table', 'C']
+c 713:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'B', 'C']
+c 714:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 715:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'B']
+c 716:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 717:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 718:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 719:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 720:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 721:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 722:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 723:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 724:
+t=0 n=False move  ['C', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 725:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['C', 'C', 'Table']
+c 726:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['C', 'Table', 'B']
+c 727:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['C', 'Table', 'C']
+c 728:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'B', 'C']
+c 729:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 730:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'C', 'B']
+c 731:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 732:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 733:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 734:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 735:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 736:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 737:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 738:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 739:
+t=0 n=False move  ['C', 'C', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 740:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['C', 'Table', 'B']
+c 741:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['C', 'Table', 'C']
+c 742:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'B', 'C']
+c 743:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 744:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'C', 'B']
+c 745:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 746:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 747:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 748:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 749:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 750:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 751:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 752:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 753:
+t=0 n=False move  ['C', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 754:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['C', 'Table', 'C']
+c 755:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'B', 'C']
+c 756:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 757:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'C', 'B']
+c 758:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 759:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 760:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 761:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 762:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 763:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 764:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 765:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 766:
+t=0 n=False move  ['C', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 767:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'B', 'C']
+c 768:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 769:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'C', 'B']
+c 770:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 771:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 772:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 773:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 774:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 775:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 776:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 777:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 778:
+t=0 n=False move  ['C', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 779:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move  ['Table', 'B', 'Table']
+c 780:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'B']
+c 781:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 782:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 783:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 784:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 785:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 786:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 787:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 788:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 789:
+t=0 n=False move  ['Table', 'B', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 790:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'B']
+c 791:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 792:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 793:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 794:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 795:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 796:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 797:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 798:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 799:
+t=0 n=False move  ['Table', 'B', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 800:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move  ['Table', 'C', 'Table']
+c 801:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 802:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 803:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 804:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 805:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 806:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 807:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 808:
+t=0 n=False move  ['Table', 'C', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 809:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'B']
+c 810:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 811:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['B', 'B']
+c 812:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['B', 'C']
+c 813:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['C', 'B']
+c 814:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['C', 'C']
+c 815:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'B']
+c 816:
+t=0 n=False move  ['Table', 'C', 'Table']
+t=0 n=False move2table  ['Table', 'C']
+c 817:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move  ['Table', 'Table', 'C']
+c 818:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['B', 'B']
+c 819:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 820:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 821:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 822:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 823:
+t=0 n=False move  ['Table', 'Table', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 824:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['B', 'B']
+c 825:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['B', 'C']
+c 826:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 827:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 828:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 829:
+t=0 n=False move  ['Table', 'Table', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 830:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False move2table  ['B', 'C']
+c 831:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False move2table  ['C', 'B']
+c 832:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 833:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 834:
+t=0 n=False move2table  ['B', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 835:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False move2table  ['C', 'B']
+c 836:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False move2table  ['C', 'C']
+c 837:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 838:
+t=0 n=False move2table  ['B', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 839:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False move2table  ['C', 'C']
+c 840:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False move2table  ['Table', 'B']
+c 841:
+t=0 n=False move2table  ['C', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 842:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False move2table  ['Table', 'B']
+c 843:
+t=0 n=False move2table  ['C', 'C']
+t=0 n=False move2table  ['Table', 'C']
+c 844:
+t=0 n=False move2table  ['Table', 'B']
+t=0 n=False move2table  ['Table', 'C']
+c 845:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=True on  ['B', 'B']
+c 846:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=True clear  ['B']
+c 847:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=True clear  ['C']
+c 848:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['B', 'B']
+c 849:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=True on  ['B', 'C']
+c 850:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False clear  ['C']
+c 851:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=True clear  ['B']
+c 852:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 853:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 854:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 855:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 856:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 857:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 858:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 859:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 860:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 861:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 862:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 863:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 864:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 865:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 866:
+t=1 n=False move  ['B', 'B', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 867:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 868:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=True on  ['B', 'B']
+c 869:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=True clear  ['B']
+c 870:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=True clear  ['Table']
+c 871:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['B', 'B']
+c 872:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 873:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False clear  ['Table']
+c 874:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=True clear  ['B']
+c 875:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 876:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 877:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 878:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 879:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 880:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 881:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 882:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 883:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 884:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 885:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 886:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 887:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 888:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 889:
+t=1 n=False move  ['B', 'B', 'Table']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 890:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 891:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=True on  ['B', 'C']
+c 892:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=True clear  ['B']
+c 893:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=True clear  ['B']
+c 894:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['B', 'C']
+c 895:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=True on  ['B', 'B']
+c 896:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False clear  ['B']
+c 897:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=True clear  ['C']
+c 898:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 899:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 900:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 901:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 902:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 903:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 904:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 905:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 906:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 907:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 908:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 909:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 910:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 911:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 912:
+t=1 n=False move  ['B', 'C', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 913:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 914:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=True on  ['B', 'C']
+c 915:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=True clear  ['B']
+c 916:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=True clear  ['Table']
+c 917:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['B', 'C']
+c 918:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 919:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False clear  ['Table']
+c 920:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=True clear  ['C']
+c 921:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 922:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 923:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 924:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 925:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 926:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 927:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 928:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 929:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 930:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 931:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 932:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 933:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 934:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 935:
+t=1 n=False move  ['B', 'C', 'Table']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 936:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 937:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=True on  ['B', 'Table']
+c 938:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=True clear  ['B']
+c 939:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=True clear  ['B']
+c 940:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['B', 'Table']
+c 941:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=True on  ['B', 'B']
+c 942:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False clear  ['B']
+c 943:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=True clear  ['Table']
+c 944:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 945:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 946:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 947:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 948:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 949:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 950:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 951:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 952:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 953:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 954:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 955:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 956:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 957:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 958:
+t=1 n=False move  ['B', 'Table', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 959:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 960:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=True on  ['B', 'Table']
+c 961:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=True clear  ['B']
+c 962:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=True clear  ['C']
+c 963:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['B', 'Table']
+c 964:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=True on  ['B', 'C']
+c 965:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False clear  ['C']
+c 966:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=True clear  ['Table']
+c 967:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 968:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 969:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 970:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 971:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 972:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 973:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 974:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 975:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 976:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 977:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 978:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 979:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 980:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 981:
+t=1 n=False move  ['B', 'Table', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 982:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 983:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=True on  ['C', 'B']
+c 984:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=True clear  ['C']
+c 985:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=True clear  ['C']
+c 986:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['C', 'B']
+c 987:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=True on  ['C', 'C']
+c 988:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False clear  ['C']
+c 989:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=True clear  ['B']
+c 990:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 991:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 992:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 993:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 994:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 995:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 996:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 997:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 998:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 999:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1000:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1001:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1002:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1003:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1004:
+t=1 n=False move  ['C', 'B', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1005:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1006:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=True on  ['C', 'B']
+c 1007:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=True clear  ['C']
+c 1008:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=True clear  ['Table']
+c 1009:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['C', 'B']
+c 1010:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1011:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False clear  ['Table']
+c 1012:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=True clear  ['B']
+c 1013:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1014:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1015:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1016:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1017:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1018:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1019:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1020:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1021:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1022:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1023:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1024:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1025:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1026:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1027:
+t=1 n=False move  ['C', 'B', 'Table']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1028:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1029:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=True on  ['C', 'C']
+c 1030:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=True clear  ['C']
+c 1031:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=True clear  ['B']
+c 1032:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['C', 'C']
+c 1033:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1034:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False clear  ['B']
+c 1035:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=True clear  ['C']
+c 1036:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1037:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1038:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1039:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1040:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1041:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1042:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1043:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1044:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1045:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1046:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1047:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1048:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1049:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1050:
+t=1 n=False move  ['C', 'C', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1051:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1052:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=True on  ['C', 'C']
+c 1053:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=True clear  ['C']
+c 1054:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=True clear  ['Table']
+c 1055:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['C', 'C']
+c 1056:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1057:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False clear  ['Table']
+c 1058:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=True clear  ['C']
+c 1059:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1060:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1061:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1062:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1063:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1064:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1065:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1066:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1067:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1068:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1069:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1070:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1071:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1072:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1073:
+t=1 n=False move  ['C', 'C', 'Table']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1074:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1075:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=True on  ['C', 'Table']
+c 1076:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=True clear  ['C']
+c 1077:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=True clear  ['B']
+c 1078:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['C', 'Table']
+c 1079:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=True on  ['C', 'B']
+c 1080:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False clear  ['B']
+c 1081:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=True clear  ['Table']
+c 1082:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1083:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1084:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1085:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1086:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1087:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1088:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1089:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1090:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1091:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1092:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1093:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1094:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1095:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1096:
+t=1 n=False move  ['C', 'Table', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1097:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1098:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=True on  ['C', 'Table']
+c 1099:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=True clear  ['C']
+c 1100:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=True clear  ['C']
+c 1101:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['C', 'Table']
+c 1102:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=True on  ['C', 'C']
+c 1103:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False clear  ['C']
+c 1104:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=True clear  ['Table']
+c 1105:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1106:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1107:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1108:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1109:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1110:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1111:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1112:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1113:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1114:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1115:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1116:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1117:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1118:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1119:
+t=1 n=False move  ['C', 'Table', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1120:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1121:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=True on  ['Table', 'B']
+c 1122:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=True clear  ['Table']
+c 1123:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=True clear  ['C']
+c 1124:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['Table', 'B']
+c 1125:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1126:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False clear  ['C']
+c 1127:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=True clear  ['B']
+c 1128:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1129:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1130:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1131:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1132:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1133:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1134:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1135:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1136:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1137:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1138:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1139:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1140:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1141:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1142:
+t=1 n=False move  ['Table', 'B', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1143:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1144:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=True on  ['Table', 'B']
+c 1145:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=True clear  ['Table']
+c 1146:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=True clear  ['Table']
+c 1147:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['Table', 'B']
+c 1148:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1149:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False clear  ['Table']
+c 1150:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=True clear  ['B']
+c 1151:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1152:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1153:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1154:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1155:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1156:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1157:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1158:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1159:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1160:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1161:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1162:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1163:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1164:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1165:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1166:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1167:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=True on  ['Table', 'C']
+c 1168:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=True clear  ['Table']
+c 1169:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=True clear  ['B']
+c 1170:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['Table', 'C']
+c 1171:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1172:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False clear  ['B']
+c 1173:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=True clear  ['C']
+c 1174:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1175:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1176:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1177:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1178:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1179:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1180:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1181:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1182:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1183:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1184:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1185:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1186:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1187:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1188:
+t=1 n=False move  ['Table', 'C', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1189:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1190:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=True on  ['Table', 'C']
+c 1191:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=True clear  ['Table']
+c 1192:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=True clear  ['Table']
+c 1193:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['Table', 'C']
+c 1194:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1195:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False clear  ['Table']
+c 1196:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=True clear  ['C']
+c 1197:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1198:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1199:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1200:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1201:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1202:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1203:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1204:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1205:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1206:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1207:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1208:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1209:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1210:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1211:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1212:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1213:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=True on  ['Table', 'Table']
+c 1214:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=True clear  ['Table']
+c 1215:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=True clear  ['B']
+c 1216:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['Table', 'Table']
+c 1217:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1218:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False clear  ['B']
+c 1219:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=True clear  ['Table']
+c 1220:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1221:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1222:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1223:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1224:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1225:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1226:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1227:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1228:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1229:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1230:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1231:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1232:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1233:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1234:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1235:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1236:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=True on  ['Table', 'Table']
+c 1237:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=True clear  ['Table']
+c 1238:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=True clear  ['C']
+c 1239:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['Table', 'Table']
+c 1240:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1241:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False clear  ['C']
+c 1242:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=True clear  ['Table']
+c 1243:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1244:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1245:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1246:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1247:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1248:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1249:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1250:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1251:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1252:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1253:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1254:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1255:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1256:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1257:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1258:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1259:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1260:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=True clear  ['B']
+c 1261:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['B', 'B']
+c 1262:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=True on  ['B', 'Table']
+c 1263:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=True clear  ['B']
+c 1264:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1265:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1266:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1267:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1268:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1269:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1270:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1271:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1272:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1273:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1274:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1275:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1276:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1277:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1278:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1279:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1280:
+t=1 n=False move2table  ['B', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1281:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1282:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1283:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=True clear  ['B']
+c 1284:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['B', 'C']
+c 1285:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=True on  ['B', 'Table']
+c 1286:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=True clear  ['C']
+c 1287:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1288:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1289:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1290:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1291:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1292:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1293:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1294:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1295:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1296:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1297:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1298:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1299:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1300:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1301:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1302:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1303:
+t=1 n=False move2table  ['B', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1304:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1305:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1306:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=True clear  ['C']
+c 1307:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['C', 'B']
+c 1308:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=True on  ['C', 'Table']
+c 1309:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=True clear  ['B']
+c 1310:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1311:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1312:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1313:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1314:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1315:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1316:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1317:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1318:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1319:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1320:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1321:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1322:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1323:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1324:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1325:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1326:
+t=1 n=False move2table  ['C', 'B']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1327:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1328:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1329:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=True clear  ['C']
+c 1330:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['C', 'C']
+c 1331:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=True on  ['C', 'Table']
+c 1332:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=True clear  ['C']
+c 1333:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1334:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1335:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1336:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1337:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1338:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1339:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1340:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1341:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1342:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1343:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1344:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1345:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1346:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1347:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1348:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1349:
+t=1 n=False move2table  ['C', 'C']
+t=2 n=False on  ['Table', 'Table']
+t=1 n=True on  ['Table', 'Table']
+c 1350:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False on  ['Table', 'Table']
+t=2 n=True on  ['Table', 'Table']
+c 1351:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1352:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=True clear  ['Table']
+c 1353:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['Table', 'B']
+c 1354:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=True on  ['Table', 'Table']
+c 1355:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=True clear  ['B']
+c 1356:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False clear  ['C']
+t=1 n=True clear  ['C']
+c 1357:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False clear  ['C']
+t=2 n=True clear  ['C']
+c 1358:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1359:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1360:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1361:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1362:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1363:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1364:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1365:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1366:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1367:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1368:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1369:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1370:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1371:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1372:
+t=1 n=False move2table  ['Table', 'B']
+t=2 n=False on  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1373:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False on  ['Table', 'C']
+t=2 n=True on  ['Table', 'C']
+c 1374:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=True on  ['Table', 'C']
+c 1375:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=True clear  ['Table']
+c 1376:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['Table', 'C']
+c 1377:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=True on  ['Table', 'Table']
+c 1378:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=True clear  ['C']
+c 1379:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False clear  ['B']
+t=1 n=True clear  ['B']
+c 1380:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False clear  ['B']
+t=2 n=True clear  ['B']
+c 1381:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False clear  ['Table']
+t=1 n=True clear  ['Table']
+c 1382:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False clear  ['Table']
+t=2 n=True clear  ['Table']
+c 1383:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['B', 'B']
+t=1 n=True on  ['B', 'B']
+c 1384:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'B']
+t=2 n=True on  ['B', 'B']
+c 1385:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['B', 'C']
+t=1 n=True on  ['B', 'C']
+c 1386:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'C']
+t=2 n=True on  ['B', 'C']
+c 1387:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['B', 'Table']
+t=1 n=True on  ['B', 'Table']
+c 1388:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['B', 'Table']
+t=2 n=True on  ['B', 'Table']
+c 1389:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['C', 'B']
+t=1 n=True on  ['C', 'B']
+c 1390:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'B']
+t=2 n=True on  ['C', 'B']
+c 1391:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['C', 'C']
+t=1 n=True on  ['C', 'C']
+c 1392:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'C']
+t=2 n=True on  ['C', 'C']
+c 1393:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['C', 'Table']
+t=1 n=True on  ['C', 'Table']
+c 1394:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['C', 'Table']
+t=2 n=True on  ['C', 'Table']
+c 1395:
+t=1 n=False move2table  ['Table', 'C']
+t=2 n=False on  ['Table', 'B']
+t=1 n=True on  ['Table', 'B']
+c 1396:
+t=1 n=False move2table  ['Table', 'C']
+t=1 n=False on  ['Table', 'B']
+t=2 n=True on  ['Table', 'B']
+c 1397:
+t=1 n=True move  ['B', 'B', 'C']
+t=1 n=True move  ['B', 'B', 'Table']
+t=1 n=True move  ['B', 'C', 'B']
+t=1 n=True move  ['B', 'C', 'Table']
+t=1 n=True move  ['B', 'Table', 'B']
+t=1 n=True move  ['B', 'Table', 'C']
+t=1 n=True move  ['C', 'B', 'C']
+t=1 n=True move  ['C', 'B', 'Table']
+t=1 n=True move  ['C', 'C', 'B']
+t=1 n=True move  ['C', 'C', 'Table']
+t=1 n=True move  ['C', 'Table', 'B']
+t=1 n=True move  ['C', 'Table', 'C']
+t=1 n=True move  ['Table', 'B', 'C']
+t=1 n=True move  ['Table', 'B', 'Table']
+t=1 n=True move  ['Table', 'C', 'B']
+t=1 n=True move  ['Table', 'C', 'Table']
+t=1 n=True move  ['Table', 'Table', 'B']
+t=1 n=True move  ['Table', 'Table', 'C']
+t=1 n=True move2table  ['B', 'B']
+t=1 n=True move2table  ['B', 'C']
+t=1 n=True move2table  ['C', 'B']
+t=1 n=True move2table  ['C', 'C']
+t=1 n=True move2table  ['Table', 'B']
+t=1 n=True move2table  ['Table', 'C']
+c 1398:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['B', 'B', 'Table']
+c 1399:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['B', 'C', 'B']
+c 1400:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['B', 'C', 'Table']
+c 1401:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['B', 'Table', 'B']
+c 1402:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['B', 'Table', 'C']
+c 1403:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'B', 'C']
+c 1404:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1405:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'C', 'B']
+c 1406:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1407:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1408:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1409:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1410:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1411:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1412:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1413:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1414:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1415:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1416:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1417:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1418:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1419:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1420:
+t=1 n=False move  ['B', 'B', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1421:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['B', 'C', 'B']
+c 1422:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['B', 'C', 'Table']
+c 1423:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['B', 'Table', 'B']
+c 1424:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['B', 'Table', 'C']
+c 1425:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'B', 'C']
+c 1426:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1427:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'C', 'B']
+c 1428:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1429:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1430:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1431:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1432:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1433:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1434:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1435:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1436:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1437:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1438:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1439:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1440:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1441:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1442:
+t=1 n=False move  ['B', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1443:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['B', 'C', 'Table']
+c 1444:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['B', 'Table', 'B']
+c 1445:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['B', 'Table', 'C']
+c 1446:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'B', 'C']
+c 1447:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1448:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'C', 'B']
+c 1449:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1450:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1451:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1452:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1453:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1454:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1455:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1456:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1457:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1458:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1459:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1460:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1461:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1462:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1463:
+t=1 n=False move  ['B', 'C', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1464:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['B', 'Table', 'B']
+c 1465:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['B', 'Table', 'C']
+c 1466:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'B', 'C']
+c 1467:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1468:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'C', 'B']
+c 1469:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1470:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1471:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1472:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1473:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1474:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1475:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1476:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1477:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1478:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1479:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1480:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1481:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1482:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1483:
+t=1 n=False move  ['B', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1484:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['B', 'Table', 'C']
+c 1485:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'B', 'C']
+c 1486:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1487:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'C', 'B']
+c 1488:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1489:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1490:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1491:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1492:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1493:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1494:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1495:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1496:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1497:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1498:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1499:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1500:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1501:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1502:
+t=1 n=False move  ['B', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1503:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'B', 'C']
+c 1504:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1505:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'C', 'B']
+c 1506:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1507:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1508:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1509:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1510:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1511:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1512:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1513:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1514:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1515:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1516:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1517:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1518:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1519:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1520:
+t=1 n=False move  ['B', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1521:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['C', 'B', 'Table']
+c 1522:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['C', 'C', 'B']
+c 1523:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1524:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1525:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1526:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1527:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1528:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1529:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1530:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1531:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1532:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1533:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1534:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1535:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1536:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1537:
+t=1 n=False move  ['C', 'B', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1538:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['C', 'C', 'B']
+c 1539:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1540:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1541:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1542:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1543:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1544:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1545:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1546:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1547:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1548:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1549:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1550:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1551:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1552:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1553:
+t=1 n=False move  ['C', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1554:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['C', 'C', 'Table']
+c 1555:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1556:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1557:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1558:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1559:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1560:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1561:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1562:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1563:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1564:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1565:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1566:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1567:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1568:
+t=1 n=False move  ['C', 'C', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1569:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['C', 'Table', 'B']
+c 1570:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1571:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1572:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1573:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1574:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1575:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1576:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1577:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1578:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1579:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1580:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1581:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1582:
+t=1 n=False move  ['C', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1583:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['C', 'Table', 'C']
+c 1584:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1585:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1586:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1587:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1588:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1589:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1590:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1591:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1592:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1593:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1594:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1595:
+t=1 n=False move  ['C', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1596:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'B', 'C']
+c 1597:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1598:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1599:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1600:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1601:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1602:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1603:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1604:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1605:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1606:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1607:
+t=1 n=False move  ['C', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1608:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move  ['Table', 'B', 'Table']
+c 1609:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1610:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1611:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1612:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1613:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1614:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1615:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1616:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1617:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1618:
+t=1 n=False move  ['Table', 'B', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1619:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'B']
+c 1620:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1621:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1622:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1623:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1624:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1625:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1626:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1627:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1628:
+t=1 n=False move  ['Table', 'B', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1629:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move  ['Table', 'C', 'Table']
+c 1630:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1631:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1632:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1633:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1634:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1635:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1636:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1637:
+t=1 n=False move  ['Table', 'C', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1638:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'B']
+c 1639:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1640:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['B', 'B']
+c 1641:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['B', 'C']
+c 1642:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['C', 'B']
+c 1643:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['C', 'C']
+c 1644:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'B']
+c 1645:
+t=1 n=False move  ['Table', 'C', 'Table']
+t=1 n=False move2table  ['Table', 'C']
+c 1646:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move  ['Table', 'Table', 'C']
+c 1647:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['B', 'B']
+c 1648:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1649:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1650:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1651:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1652:
+t=1 n=False move  ['Table', 'Table', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1653:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['B', 'B']
+c 1654:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['B', 'C']
+c 1655:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1656:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1657:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1658:
+t=1 n=False move  ['Table', 'Table', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1659:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False move2table  ['B', 'C']
+c 1660:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False move2table  ['C', 'B']
+c 1661:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1662:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1663:
+t=1 n=False move2table  ['B', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1664:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False move2table  ['C', 'B']
+c 1665:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False move2table  ['C', 'C']
+c 1666:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1667:
+t=1 n=False move2table  ['B', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1668:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False move2table  ['C', 'C']
+c 1669:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False move2table  ['Table', 'B']
+c 1670:
+t=1 n=False move2table  ['C', 'B']
+t=1 n=False move2table  ['Table', 'C']
+c 1671:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False move2table  ['Table', 'B']
+c 1672:
+t=1 n=False move2table  ['C', 'C']
+t=1 n=False move2table  ['Table', 'C']
+c 1673:
+t=1 n=False move2table  ['Table', 'B']
+t=1 n=False move2table  ['Table', 'C']

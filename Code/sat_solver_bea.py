@@ -1,4 +1,5 @@
-from mod_dpll_bea import dpll
+import sys
+from bea_dpll import *
 
 """
 
@@ -24,7 +25,7 @@ def sat_solver_algorithm(CNF_formula):
 """
 
 def read_problem_line(line):
-
+    
     line_list = line.split()
 
     variables = line_list[2]
@@ -46,6 +47,7 @@ def read_cnf(cnf, verbose = 'False'):
 
     for line in cnf:
 
+        print(line)
         # reads preamble
 
         # skips comment lines
@@ -81,7 +83,7 @@ def read_cnf(cnf, verbose = 'False'):
             if l[0] == '-':
                 l = l[1:]
             symbol_list.add(l)
-    
+
     if verbose:
         print("Done\n")
         print("Num of vars: " + var_num)
@@ -92,30 +94,35 @@ def read_cnf(cnf, verbose = 'False'):
         print("CNF file has the following clauses:")
         for c in clause_list:
             print("** " + str(c) + " **")
-        print('\n')
+        print('\n')  
     return clause_list, symbol_list
-    
 
-def sat_solver(cnf, verbose = False):
 
-    clauses, symbols = read_cnf(cnf, verbose = False)
-   
-    if verbose:
-        print('Solving SAT...')
+file_name = sys.argv[1]
+cnf = open(file_name)
 
-    sat,answer = dpll(clauses, symbols)
+clauses, symbols = read_cnf(cnf,verbose = False)
 
-    if sat:
-        response = 'v '
-        for (k,v) in answer.items():    
-            if v == False:
-                response += '-' + str(k) + ' '
-            else:
-                response += str(k) + ' '
-        response += '0'
-        print('Satisfiable')
-        return response
+print('Solving SAT...')
+
+sat,answer = dpll(clauses, symbols)
+
+print('answer')
+
+response = 'v '
+for (k,v) in answer.items():    
+    if v == False:
+        response += '-' + str(k) + ' '
     else:
-        print('Not Satisfiable')
+        response += str(k) + ' '
+    response += '0'
 
-    return sat
+print(response)
+
+print('Done')
+if sat:
+    print('Satisfiable')
+else:
+    print('Not Satisfiable')
+
+

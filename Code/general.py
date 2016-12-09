@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import time
+
 # user scripts
 from sat_solver import *
 from encoder import *
@@ -36,10 +38,17 @@ def general_algorithm(initial,goal,actions_list,constants_list,atoms_dictionary)
 
 		print(SAT_problem)
 		answer = sat_solver(SAT_problem)
-
+		
 		if answer != False:
+			print(answer)
+			print('------------------------------ANSWER')
+			read_answer(SAT_dict,answer,action_keys)
 			break
 		else:
+			print('------------------------------NEXT')
+			if h==3:
+			 	print('FAILED')
+			 	break
 			h = h + 1	
 
 	return answer
