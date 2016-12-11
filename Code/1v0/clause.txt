@@ -1,0 +1,1493 @@
+---------------------------------------SAT variables 
+1 redo['B'] t= 0
+2 redone['B'] t= 3
+3 do['A'] t= 0
+4 do['C'] t= 0
+5 ready['B'] t= 2
+6 do['C'] t= 1
+7 done['B'] t= 0
+8 ready['A'] t= 3
+9 redo['C'] t= 0
+10 redone['B'] t= 0
+11 ready['B'] t= 0
+12 done['A'] t= 0
+13 do['C'] t= 2
+14 redone['B'] t= 1
+15 redo['B'] t= 1
+16 redo['C'] t= 1
+17 redo['C'] t= 2
+18 do['B'] t= 0
+19 do['A'] t= 1
+20 do['A'] t= 2
+21 redo['A'] t= 1
+22 redone['A'] t= 2
+23 ready['B'] t= 3
+24 ready['A'] t= 0
+25 ready['C'] t= 2
+26 done['B'] t= 2
+27 redo['A'] t= 0
+28 do['B'] t= 2
+29 do['B'] t= 1
+30 ready['A'] t= 1
+31 done['A'] t= 3
+32 redone['C'] t= 0
+33 redo['B'] t= 2
+34 done['A'] t= 2
+35 redone['C'] t= 3
+36 done['C'] t= 2
+37 done['C'] t= 0
+38 redone['A'] t= 1
+39 redone['A'] t= 0
+40 ready['C'] t= 3
+41 redone['A'] t= 3
+42 ready['B'] t= 1
+43 done['C'] t= 3
+44 ready['C'] t= 1
+45 ready['C'] t= 0
+46 done['C'] t= 1
+47 redone['B'] t= 2
+48 done['A'] t= 1
+49 redone['C'] t= 2
+50 ready['A'] t= 2
+51 done['B'] t= 1
+52 done['B'] t= 3
+53 redo['A'] t= 2
+54 redone['C'] t= 1
+
+---------------------------------------CLAUSES 
+c 1:
+t=0 n=True ready  ['A']
+c 2:
+t=0 n=True ready  ['B']
+c 3:
+t=0 n=True ready  ['C']
+c 4:
+t=0 n=False done  ['A']
+c 5:
+t=0 n=False done  ['B']
+c 6:
+t=0 n=False done  ['C']
+c 7:
+t=0 n=False redone  ['A']
+c 8:
+t=0 n=False redone  ['B']
+c 9:
+t=0 n=False redone  ['C']
+c 10:
+t=3 n=True redone  ['B']
+c 11:
+t=0 n=False do  ['A']
+t=0 n=True ready  ['A']
+c 12:
+t=0 n=False do  ['A']
+t=1 n=True done  ['A']
+c 13:
+t=0 n=False do  ['A']
+t=1 n=False done  ['B']
+t=0 n=True done  ['B']
+c 14:
+t=0 n=False do  ['A']
+t=0 n=False done  ['B']
+t=1 n=True done  ['B']
+c 15:
+t=0 n=False do  ['A']
+t=1 n=False done  ['C']
+t=0 n=True done  ['C']
+c 16:
+t=0 n=False do  ['A']
+t=0 n=False done  ['C']
+t=1 n=True done  ['C']
+c 17:
+t=0 n=False do  ['A']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 18:
+t=0 n=False do  ['A']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 19:
+t=0 n=False do  ['A']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 20:
+t=0 n=False do  ['A']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 21:
+t=0 n=False do  ['A']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 22:
+t=0 n=False do  ['A']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 23:
+t=0 n=False do  ['A']
+t=1 n=False redone  ['A']
+t=0 n=True redone  ['A']
+c 24:
+t=0 n=False do  ['A']
+t=0 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 25:
+t=0 n=False do  ['A']
+t=1 n=False redone  ['B']
+t=0 n=True redone  ['B']
+c 26:
+t=0 n=False do  ['A']
+t=0 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 27:
+t=0 n=False do  ['A']
+t=1 n=False redone  ['C']
+t=0 n=True redone  ['C']
+c 28:
+t=0 n=False do  ['A']
+t=0 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 29:
+t=0 n=False do  ['B']
+t=0 n=True ready  ['B']
+c 30:
+t=0 n=False do  ['B']
+t=1 n=True done  ['B']
+c 31:
+t=0 n=False do  ['B']
+t=1 n=False done  ['A']
+t=0 n=True done  ['A']
+c 32:
+t=0 n=False do  ['B']
+t=0 n=False done  ['A']
+t=1 n=True done  ['A']
+c 33:
+t=0 n=False do  ['B']
+t=1 n=False done  ['C']
+t=0 n=True done  ['C']
+c 34:
+t=0 n=False do  ['B']
+t=0 n=False done  ['C']
+t=1 n=True done  ['C']
+c 35:
+t=0 n=False do  ['B']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 36:
+t=0 n=False do  ['B']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 37:
+t=0 n=False do  ['B']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 38:
+t=0 n=False do  ['B']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 39:
+t=0 n=False do  ['B']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 40:
+t=0 n=False do  ['B']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 41:
+t=0 n=False do  ['B']
+t=1 n=False redone  ['A']
+t=0 n=True redone  ['A']
+c 42:
+t=0 n=False do  ['B']
+t=0 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 43:
+t=0 n=False do  ['B']
+t=1 n=False redone  ['B']
+t=0 n=True redone  ['B']
+c 44:
+t=0 n=False do  ['B']
+t=0 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 45:
+t=0 n=False do  ['B']
+t=1 n=False redone  ['C']
+t=0 n=True redone  ['C']
+c 46:
+t=0 n=False do  ['B']
+t=0 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 47:
+t=0 n=False do  ['C']
+t=0 n=True ready  ['C']
+c 48:
+t=0 n=False do  ['C']
+t=1 n=True done  ['C']
+c 49:
+t=0 n=False do  ['C']
+t=1 n=False done  ['A']
+t=0 n=True done  ['A']
+c 50:
+t=0 n=False do  ['C']
+t=0 n=False done  ['A']
+t=1 n=True done  ['A']
+c 51:
+t=0 n=False do  ['C']
+t=1 n=False done  ['B']
+t=0 n=True done  ['B']
+c 52:
+t=0 n=False do  ['C']
+t=0 n=False done  ['B']
+t=1 n=True done  ['B']
+c 53:
+t=0 n=False do  ['C']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 54:
+t=0 n=False do  ['C']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 55:
+t=0 n=False do  ['C']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 56:
+t=0 n=False do  ['C']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 57:
+t=0 n=False do  ['C']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 58:
+t=0 n=False do  ['C']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 59:
+t=0 n=False do  ['C']
+t=1 n=False redone  ['A']
+t=0 n=True redone  ['A']
+c 60:
+t=0 n=False do  ['C']
+t=0 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 61:
+t=0 n=False do  ['C']
+t=1 n=False redone  ['B']
+t=0 n=True redone  ['B']
+c 62:
+t=0 n=False do  ['C']
+t=0 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 63:
+t=0 n=False do  ['C']
+t=1 n=False redone  ['C']
+t=0 n=True redone  ['C']
+c 64:
+t=0 n=False do  ['C']
+t=0 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 65:
+t=0 n=False redo  ['A']
+t=0 n=True done  ['A']
+c 66:
+t=0 n=False redo  ['A']
+t=1 n=True redone  ['A']
+c 67:
+t=0 n=False redo  ['A']
+t=1 n=False done  ['A']
+t=0 n=True done  ['A']
+c 68:
+t=0 n=False redo  ['A']
+t=0 n=False done  ['A']
+t=1 n=True done  ['A']
+c 69:
+t=0 n=False redo  ['A']
+t=1 n=False done  ['B']
+t=0 n=True done  ['B']
+c 70:
+t=0 n=False redo  ['A']
+t=0 n=False done  ['B']
+t=1 n=True done  ['B']
+c 71:
+t=0 n=False redo  ['A']
+t=1 n=False done  ['C']
+t=0 n=True done  ['C']
+c 72:
+t=0 n=False redo  ['A']
+t=0 n=False done  ['C']
+t=1 n=True done  ['C']
+c 73:
+t=0 n=False redo  ['A']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 74:
+t=0 n=False redo  ['A']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 75:
+t=0 n=False redo  ['A']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 76:
+t=0 n=False redo  ['A']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 77:
+t=0 n=False redo  ['A']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 78:
+t=0 n=False redo  ['A']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 79:
+t=0 n=False redo  ['A']
+t=1 n=False redone  ['B']
+t=0 n=True redone  ['B']
+c 80:
+t=0 n=False redo  ['A']
+t=0 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 81:
+t=0 n=False redo  ['A']
+t=1 n=False redone  ['C']
+t=0 n=True redone  ['C']
+c 82:
+t=0 n=False redo  ['A']
+t=0 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 83:
+t=0 n=False redo  ['B']
+t=0 n=True done  ['B']
+c 84:
+t=0 n=False redo  ['B']
+t=1 n=True redone  ['B']
+c 85:
+t=0 n=False redo  ['B']
+t=1 n=False done  ['A']
+t=0 n=True done  ['A']
+c 86:
+t=0 n=False redo  ['B']
+t=0 n=False done  ['A']
+t=1 n=True done  ['A']
+c 87:
+t=0 n=False redo  ['B']
+t=1 n=False done  ['B']
+t=0 n=True done  ['B']
+c 88:
+t=0 n=False redo  ['B']
+t=0 n=False done  ['B']
+t=1 n=True done  ['B']
+c 89:
+t=0 n=False redo  ['B']
+t=1 n=False done  ['C']
+t=0 n=True done  ['C']
+c 90:
+t=0 n=False redo  ['B']
+t=0 n=False done  ['C']
+t=1 n=True done  ['C']
+c 91:
+t=0 n=False redo  ['B']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 92:
+t=0 n=False redo  ['B']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 93:
+t=0 n=False redo  ['B']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 94:
+t=0 n=False redo  ['B']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 95:
+t=0 n=False redo  ['B']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 96:
+t=0 n=False redo  ['B']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 97:
+t=0 n=False redo  ['B']
+t=1 n=False redone  ['A']
+t=0 n=True redone  ['A']
+c 98:
+t=0 n=False redo  ['B']
+t=0 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 99:
+t=0 n=False redo  ['B']
+t=1 n=False redone  ['C']
+t=0 n=True redone  ['C']
+c 100:
+t=0 n=False redo  ['B']
+t=0 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 101:
+t=0 n=False redo  ['C']
+t=0 n=True done  ['C']
+c 102:
+t=0 n=False redo  ['C']
+t=1 n=True redone  ['C']
+c 103:
+t=0 n=False redo  ['C']
+t=1 n=False done  ['A']
+t=0 n=True done  ['A']
+c 104:
+t=0 n=False redo  ['C']
+t=0 n=False done  ['A']
+t=1 n=True done  ['A']
+c 105:
+t=0 n=False redo  ['C']
+t=1 n=False done  ['B']
+t=0 n=True done  ['B']
+c 106:
+t=0 n=False redo  ['C']
+t=0 n=False done  ['B']
+t=1 n=True done  ['B']
+c 107:
+t=0 n=False redo  ['C']
+t=1 n=False done  ['C']
+t=0 n=True done  ['C']
+c 108:
+t=0 n=False redo  ['C']
+t=0 n=False done  ['C']
+t=1 n=True done  ['C']
+c 109:
+t=0 n=False redo  ['C']
+t=1 n=False ready  ['A']
+t=0 n=True ready  ['A']
+c 110:
+t=0 n=False redo  ['C']
+t=0 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 111:
+t=0 n=False redo  ['C']
+t=1 n=False ready  ['B']
+t=0 n=True ready  ['B']
+c 112:
+t=0 n=False redo  ['C']
+t=0 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 113:
+t=0 n=False redo  ['C']
+t=1 n=False ready  ['C']
+t=0 n=True ready  ['C']
+c 114:
+t=0 n=False redo  ['C']
+t=0 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 115:
+t=0 n=False redo  ['C']
+t=1 n=False redone  ['A']
+t=0 n=True redone  ['A']
+c 116:
+t=0 n=False redo  ['C']
+t=0 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 117:
+t=0 n=False redo  ['C']
+t=1 n=False redone  ['B']
+t=0 n=True redone  ['B']
+c 118:
+t=0 n=False redo  ['C']
+t=0 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 119:
+t=0 n=True do  ['A']
+t=0 n=True do  ['B']
+t=0 n=True do  ['C']
+t=0 n=True redo  ['A']
+t=0 n=True redo  ['B']
+t=0 n=True redo  ['C']
+c 120:
+t=0 n=False do  ['A']
+t=0 n=False do  ['B']
+c 121:
+t=0 n=False do  ['A']
+t=0 n=False do  ['C']
+c 122:
+t=0 n=False do  ['A']
+t=0 n=False redo  ['A']
+c 123:
+t=0 n=False do  ['A']
+t=0 n=False redo  ['B']
+c 124:
+t=0 n=False do  ['A']
+t=0 n=False redo  ['C']
+c 125:
+t=0 n=False do  ['B']
+t=0 n=False do  ['C']
+c 126:
+t=0 n=False do  ['B']
+t=0 n=False redo  ['A']
+c 127:
+t=0 n=False do  ['B']
+t=0 n=False redo  ['B']
+c 128:
+t=0 n=False do  ['B']
+t=0 n=False redo  ['C']
+c 129:
+t=0 n=False do  ['C']
+t=0 n=False redo  ['A']
+c 130:
+t=0 n=False do  ['C']
+t=0 n=False redo  ['B']
+c 131:
+t=0 n=False do  ['C']
+t=0 n=False redo  ['C']
+c 132:
+t=0 n=False redo  ['A']
+t=0 n=False redo  ['B']
+c 133:
+t=0 n=False redo  ['A']
+t=0 n=False redo  ['C']
+c 134:
+t=0 n=False redo  ['B']
+t=0 n=False redo  ['C']
+c 135:
+t=1 n=False do  ['A']
+t=1 n=True ready  ['A']
+c 136:
+t=1 n=False do  ['A']
+t=2 n=True done  ['A']
+c 137:
+t=1 n=False do  ['A']
+t=2 n=False done  ['B']
+t=1 n=True done  ['B']
+c 138:
+t=1 n=False do  ['A']
+t=1 n=False done  ['B']
+t=2 n=True done  ['B']
+c 139:
+t=1 n=False do  ['A']
+t=2 n=False done  ['C']
+t=1 n=True done  ['C']
+c 140:
+t=1 n=False do  ['A']
+t=1 n=False done  ['C']
+t=2 n=True done  ['C']
+c 141:
+t=1 n=False do  ['A']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 142:
+t=1 n=False do  ['A']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 143:
+t=1 n=False do  ['A']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 144:
+t=1 n=False do  ['A']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 145:
+t=1 n=False do  ['A']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 146:
+t=1 n=False do  ['A']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 147:
+t=1 n=False do  ['A']
+t=2 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 148:
+t=1 n=False do  ['A']
+t=1 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 149:
+t=1 n=False do  ['A']
+t=2 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 150:
+t=1 n=False do  ['A']
+t=1 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 151:
+t=1 n=False do  ['A']
+t=2 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 152:
+t=1 n=False do  ['A']
+t=1 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 153:
+t=1 n=False do  ['B']
+t=1 n=True ready  ['B']
+c 154:
+t=1 n=False do  ['B']
+t=2 n=True done  ['B']
+c 155:
+t=1 n=False do  ['B']
+t=2 n=False done  ['A']
+t=1 n=True done  ['A']
+c 156:
+t=1 n=False do  ['B']
+t=1 n=False done  ['A']
+t=2 n=True done  ['A']
+c 157:
+t=1 n=False do  ['B']
+t=2 n=False done  ['C']
+t=1 n=True done  ['C']
+c 158:
+t=1 n=False do  ['B']
+t=1 n=False done  ['C']
+t=2 n=True done  ['C']
+c 159:
+t=1 n=False do  ['B']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 160:
+t=1 n=False do  ['B']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 161:
+t=1 n=False do  ['B']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 162:
+t=1 n=False do  ['B']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 163:
+t=1 n=False do  ['B']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 164:
+t=1 n=False do  ['B']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 165:
+t=1 n=False do  ['B']
+t=2 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 166:
+t=1 n=False do  ['B']
+t=1 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 167:
+t=1 n=False do  ['B']
+t=2 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 168:
+t=1 n=False do  ['B']
+t=1 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 169:
+t=1 n=False do  ['B']
+t=2 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 170:
+t=1 n=False do  ['B']
+t=1 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 171:
+t=1 n=False do  ['C']
+t=1 n=True ready  ['C']
+c 172:
+t=1 n=False do  ['C']
+t=2 n=True done  ['C']
+c 173:
+t=1 n=False do  ['C']
+t=2 n=False done  ['A']
+t=1 n=True done  ['A']
+c 174:
+t=1 n=False do  ['C']
+t=1 n=False done  ['A']
+t=2 n=True done  ['A']
+c 175:
+t=1 n=False do  ['C']
+t=2 n=False done  ['B']
+t=1 n=True done  ['B']
+c 176:
+t=1 n=False do  ['C']
+t=1 n=False done  ['B']
+t=2 n=True done  ['B']
+c 177:
+t=1 n=False do  ['C']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 178:
+t=1 n=False do  ['C']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 179:
+t=1 n=False do  ['C']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 180:
+t=1 n=False do  ['C']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 181:
+t=1 n=False do  ['C']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 182:
+t=1 n=False do  ['C']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 183:
+t=1 n=False do  ['C']
+t=2 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 184:
+t=1 n=False do  ['C']
+t=1 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 185:
+t=1 n=False do  ['C']
+t=2 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 186:
+t=1 n=False do  ['C']
+t=1 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 187:
+t=1 n=False do  ['C']
+t=2 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 188:
+t=1 n=False do  ['C']
+t=1 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 189:
+t=1 n=False redo  ['A']
+t=1 n=True done  ['A']
+c 190:
+t=1 n=False redo  ['A']
+t=2 n=True redone  ['A']
+c 191:
+t=1 n=False redo  ['A']
+t=2 n=False done  ['A']
+t=1 n=True done  ['A']
+c 192:
+t=1 n=False redo  ['A']
+t=1 n=False done  ['A']
+t=2 n=True done  ['A']
+c 193:
+t=1 n=False redo  ['A']
+t=2 n=False done  ['B']
+t=1 n=True done  ['B']
+c 194:
+t=1 n=False redo  ['A']
+t=1 n=False done  ['B']
+t=2 n=True done  ['B']
+c 195:
+t=1 n=False redo  ['A']
+t=2 n=False done  ['C']
+t=1 n=True done  ['C']
+c 196:
+t=1 n=False redo  ['A']
+t=1 n=False done  ['C']
+t=2 n=True done  ['C']
+c 197:
+t=1 n=False redo  ['A']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 198:
+t=1 n=False redo  ['A']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 199:
+t=1 n=False redo  ['A']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 200:
+t=1 n=False redo  ['A']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 201:
+t=1 n=False redo  ['A']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 202:
+t=1 n=False redo  ['A']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 203:
+t=1 n=False redo  ['A']
+t=2 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 204:
+t=1 n=False redo  ['A']
+t=1 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 205:
+t=1 n=False redo  ['A']
+t=2 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 206:
+t=1 n=False redo  ['A']
+t=1 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 207:
+t=1 n=False redo  ['B']
+t=1 n=True done  ['B']
+c 208:
+t=1 n=False redo  ['B']
+t=2 n=True redone  ['B']
+c 209:
+t=1 n=False redo  ['B']
+t=2 n=False done  ['A']
+t=1 n=True done  ['A']
+c 210:
+t=1 n=False redo  ['B']
+t=1 n=False done  ['A']
+t=2 n=True done  ['A']
+c 211:
+t=1 n=False redo  ['B']
+t=2 n=False done  ['B']
+t=1 n=True done  ['B']
+c 212:
+t=1 n=False redo  ['B']
+t=1 n=False done  ['B']
+t=2 n=True done  ['B']
+c 213:
+t=1 n=False redo  ['B']
+t=2 n=False done  ['C']
+t=1 n=True done  ['C']
+c 214:
+t=1 n=False redo  ['B']
+t=1 n=False done  ['C']
+t=2 n=True done  ['C']
+c 215:
+t=1 n=False redo  ['B']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 216:
+t=1 n=False redo  ['B']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 217:
+t=1 n=False redo  ['B']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 218:
+t=1 n=False redo  ['B']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 219:
+t=1 n=False redo  ['B']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 220:
+t=1 n=False redo  ['B']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 221:
+t=1 n=False redo  ['B']
+t=2 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 222:
+t=1 n=False redo  ['B']
+t=1 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 223:
+t=1 n=False redo  ['B']
+t=2 n=False redone  ['C']
+t=1 n=True redone  ['C']
+c 224:
+t=1 n=False redo  ['B']
+t=1 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 225:
+t=1 n=False redo  ['C']
+t=1 n=True done  ['C']
+c 226:
+t=1 n=False redo  ['C']
+t=2 n=True redone  ['C']
+c 227:
+t=1 n=False redo  ['C']
+t=2 n=False done  ['A']
+t=1 n=True done  ['A']
+c 228:
+t=1 n=False redo  ['C']
+t=1 n=False done  ['A']
+t=2 n=True done  ['A']
+c 229:
+t=1 n=False redo  ['C']
+t=2 n=False done  ['B']
+t=1 n=True done  ['B']
+c 230:
+t=1 n=False redo  ['C']
+t=1 n=False done  ['B']
+t=2 n=True done  ['B']
+c 231:
+t=1 n=False redo  ['C']
+t=2 n=False done  ['C']
+t=1 n=True done  ['C']
+c 232:
+t=1 n=False redo  ['C']
+t=1 n=False done  ['C']
+t=2 n=True done  ['C']
+c 233:
+t=1 n=False redo  ['C']
+t=2 n=False ready  ['A']
+t=1 n=True ready  ['A']
+c 234:
+t=1 n=False redo  ['C']
+t=1 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 235:
+t=1 n=False redo  ['C']
+t=2 n=False ready  ['B']
+t=1 n=True ready  ['B']
+c 236:
+t=1 n=False redo  ['C']
+t=1 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 237:
+t=1 n=False redo  ['C']
+t=2 n=False ready  ['C']
+t=1 n=True ready  ['C']
+c 238:
+t=1 n=False redo  ['C']
+t=1 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 239:
+t=1 n=False redo  ['C']
+t=2 n=False redone  ['A']
+t=1 n=True redone  ['A']
+c 240:
+t=1 n=False redo  ['C']
+t=1 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 241:
+t=1 n=False redo  ['C']
+t=2 n=False redone  ['B']
+t=1 n=True redone  ['B']
+c 242:
+t=1 n=False redo  ['C']
+t=1 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 243:
+t=1 n=True do  ['A']
+t=1 n=True do  ['B']
+t=1 n=True do  ['C']
+t=1 n=True redo  ['A']
+t=1 n=True redo  ['B']
+t=1 n=True redo  ['C']
+c 244:
+t=1 n=False do  ['A']
+t=1 n=False do  ['B']
+c 245:
+t=1 n=False do  ['A']
+t=1 n=False do  ['C']
+c 246:
+t=1 n=False do  ['A']
+t=1 n=False redo  ['A']
+c 247:
+t=1 n=False do  ['A']
+t=1 n=False redo  ['B']
+c 248:
+t=1 n=False do  ['A']
+t=1 n=False redo  ['C']
+c 249:
+t=1 n=False do  ['B']
+t=1 n=False do  ['C']
+c 250:
+t=1 n=False do  ['B']
+t=1 n=False redo  ['A']
+c 251:
+t=1 n=False do  ['B']
+t=1 n=False redo  ['B']
+c 252:
+t=1 n=False do  ['B']
+t=1 n=False redo  ['C']
+c 253:
+t=1 n=False do  ['C']
+t=1 n=False redo  ['A']
+c 254:
+t=1 n=False do  ['C']
+t=1 n=False redo  ['B']
+c 255:
+t=1 n=False do  ['C']
+t=1 n=False redo  ['C']
+c 256:
+t=1 n=False redo  ['A']
+t=1 n=False redo  ['B']
+c 257:
+t=1 n=False redo  ['A']
+t=1 n=False redo  ['C']
+c 258:
+t=1 n=False redo  ['B']
+t=1 n=False redo  ['C']
+c 259:
+t=2 n=False do  ['A']
+t=2 n=True ready  ['A']
+c 260:
+t=2 n=False do  ['A']
+t=3 n=True done  ['A']
+c 261:
+t=2 n=False do  ['A']
+t=3 n=False done  ['B']
+t=2 n=True done  ['B']
+c 262:
+t=2 n=False do  ['A']
+t=2 n=False done  ['B']
+t=3 n=True done  ['B']
+c 263:
+t=2 n=False do  ['A']
+t=3 n=False done  ['C']
+t=2 n=True done  ['C']
+c 264:
+t=2 n=False do  ['A']
+t=2 n=False done  ['C']
+t=3 n=True done  ['C']
+c 265:
+t=2 n=False do  ['A']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 266:
+t=2 n=False do  ['A']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 267:
+t=2 n=False do  ['A']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 268:
+t=2 n=False do  ['A']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 269:
+t=2 n=False do  ['A']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 270:
+t=2 n=False do  ['A']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 271:
+t=2 n=False do  ['A']
+t=3 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 272:
+t=2 n=False do  ['A']
+t=2 n=False redone  ['A']
+t=3 n=True redone  ['A']
+c 273:
+t=2 n=False do  ['A']
+t=3 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 274:
+t=2 n=False do  ['A']
+t=2 n=False redone  ['B']
+t=3 n=True redone  ['B']
+c 275:
+t=2 n=False do  ['A']
+t=3 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 276:
+t=2 n=False do  ['A']
+t=2 n=False redone  ['C']
+t=3 n=True redone  ['C']
+c 277:
+t=2 n=False do  ['B']
+t=2 n=True ready  ['B']
+c 278:
+t=2 n=False do  ['B']
+t=3 n=True done  ['B']
+c 279:
+t=2 n=False do  ['B']
+t=3 n=False done  ['A']
+t=2 n=True done  ['A']
+c 280:
+t=2 n=False do  ['B']
+t=2 n=False done  ['A']
+t=3 n=True done  ['A']
+c 281:
+t=2 n=False do  ['B']
+t=3 n=False done  ['C']
+t=2 n=True done  ['C']
+c 282:
+t=2 n=False do  ['B']
+t=2 n=False done  ['C']
+t=3 n=True done  ['C']
+c 283:
+t=2 n=False do  ['B']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 284:
+t=2 n=False do  ['B']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 285:
+t=2 n=False do  ['B']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 286:
+t=2 n=False do  ['B']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 287:
+t=2 n=False do  ['B']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 288:
+t=2 n=False do  ['B']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 289:
+t=2 n=False do  ['B']
+t=3 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 290:
+t=2 n=False do  ['B']
+t=2 n=False redone  ['A']
+t=3 n=True redone  ['A']
+c 291:
+t=2 n=False do  ['B']
+t=3 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 292:
+t=2 n=False do  ['B']
+t=2 n=False redone  ['B']
+t=3 n=True redone  ['B']
+c 293:
+t=2 n=False do  ['B']
+t=3 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 294:
+t=2 n=False do  ['B']
+t=2 n=False redone  ['C']
+t=3 n=True redone  ['C']
+c 295:
+t=2 n=False do  ['C']
+t=2 n=True ready  ['C']
+c 296:
+t=2 n=False do  ['C']
+t=3 n=True done  ['C']
+c 297:
+t=2 n=False do  ['C']
+t=3 n=False done  ['A']
+t=2 n=True done  ['A']
+c 298:
+t=2 n=False do  ['C']
+t=2 n=False done  ['A']
+t=3 n=True done  ['A']
+c 299:
+t=2 n=False do  ['C']
+t=3 n=False done  ['B']
+t=2 n=True done  ['B']
+c 300:
+t=2 n=False do  ['C']
+t=2 n=False done  ['B']
+t=3 n=True done  ['B']
+c 301:
+t=2 n=False do  ['C']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 302:
+t=2 n=False do  ['C']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 303:
+t=2 n=False do  ['C']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 304:
+t=2 n=False do  ['C']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 305:
+t=2 n=False do  ['C']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 306:
+t=2 n=False do  ['C']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 307:
+t=2 n=False do  ['C']
+t=3 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 308:
+t=2 n=False do  ['C']
+t=2 n=False redone  ['A']
+t=3 n=True redone  ['A']
+c 309:
+t=2 n=False do  ['C']
+t=3 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 310:
+t=2 n=False do  ['C']
+t=2 n=False redone  ['B']
+t=3 n=True redone  ['B']
+c 311:
+t=2 n=False do  ['C']
+t=3 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 312:
+t=2 n=False do  ['C']
+t=2 n=False redone  ['C']
+t=3 n=True redone  ['C']
+c 313:
+t=2 n=False redo  ['A']
+t=2 n=True done  ['A']
+c 314:
+t=2 n=False redo  ['A']
+t=3 n=True redone  ['A']
+c 315:
+t=2 n=False redo  ['A']
+t=3 n=False done  ['A']
+t=2 n=True done  ['A']
+c 316:
+t=2 n=False redo  ['A']
+t=2 n=False done  ['A']
+t=3 n=True done  ['A']
+c 317:
+t=2 n=False redo  ['A']
+t=3 n=False done  ['B']
+t=2 n=True done  ['B']
+c 318:
+t=2 n=False redo  ['A']
+t=2 n=False done  ['B']
+t=3 n=True done  ['B']
+c 319:
+t=2 n=False redo  ['A']
+t=3 n=False done  ['C']
+t=2 n=True done  ['C']
+c 320:
+t=2 n=False redo  ['A']
+t=2 n=False done  ['C']
+t=3 n=True done  ['C']
+c 321:
+t=2 n=False redo  ['A']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 322:
+t=2 n=False redo  ['A']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 323:
+t=2 n=False redo  ['A']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 324:
+t=2 n=False redo  ['A']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 325:
+t=2 n=False redo  ['A']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 326:
+t=2 n=False redo  ['A']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 327:
+t=2 n=False redo  ['A']
+t=3 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 328:
+t=2 n=False redo  ['A']
+t=2 n=False redone  ['B']
+t=3 n=True redone  ['B']
+c 329:
+t=2 n=False redo  ['A']
+t=3 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 330:
+t=2 n=False redo  ['A']
+t=2 n=False redone  ['C']
+t=3 n=True redone  ['C']
+c 331:
+t=2 n=False redo  ['B']
+t=2 n=True done  ['B']
+c 332:
+t=2 n=False redo  ['B']
+t=3 n=True redone  ['B']
+c 333:
+t=2 n=False redo  ['B']
+t=3 n=False done  ['A']
+t=2 n=True done  ['A']
+c 334:
+t=2 n=False redo  ['B']
+t=2 n=False done  ['A']
+t=3 n=True done  ['A']
+c 335:
+t=2 n=False redo  ['B']
+t=3 n=False done  ['B']
+t=2 n=True done  ['B']
+c 336:
+t=2 n=False redo  ['B']
+t=2 n=False done  ['B']
+t=3 n=True done  ['B']
+c 337:
+t=2 n=False redo  ['B']
+t=3 n=False done  ['C']
+t=2 n=True done  ['C']
+c 338:
+t=2 n=False redo  ['B']
+t=2 n=False done  ['C']
+t=3 n=True done  ['C']
+c 339:
+t=2 n=False redo  ['B']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 340:
+t=2 n=False redo  ['B']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 341:
+t=2 n=False redo  ['B']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 342:
+t=2 n=False redo  ['B']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 343:
+t=2 n=False redo  ['B']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 344:
+t=2 n=False redo  ['B']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 345:
+t=2 n=False redo  ['B']
+t=3 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 346:
+t=2 n=False redo  ['B']
+t=2 n=False redone  ['A']
+t=3 n=True redone  ['A']
+c 347:
+t=2 n=False redo  ['B']
+t=3 n=False redone  ['C']
+t=2 n=True redone  ['C']
+c 348:
+t=2 n=False redo  ['B']
+t=2 n=False redone  ['C']
+t=3 n=True redone  ['C']
+c 349:
+t=2 n=False redo  ['C']
+t=2 n=True done  ['C']
+c 350:
+t=2 n=False redo  ['C']
+t=3 n=True redone  ['C']
+c 351:
+t=2 n=False redo  ['C']
+t=3 n=False done  ['A']
+t=2 n=True done  ['A']
+c 352:
+t=2 n=False redo  ['C']
+t=2 n=False done  ['A']
+t=3 n=True done  ['A']
+c 353:
+t=2 n=False redo  ['C']
+t=3 n=False done  ['B']
+t=2 n=True done  ['B']
+c 354:
+t=2 n=False redo  ['C']
+t=2 n=False done  ['B']
+t=3 n=True done  ['B']
+c 355:
+t=2 n=False redo  ['C']
+t=3 n=False done  ['C']
+t=2 n=True done  ['C']
+c 356:
+t=2 n=False redo  ['C']
+t=2 n=False done  ['C']
+t=3 n=True done  ['C']
+c 357:
+t=2 n=False redo  ['C']
+t=3 n=False ready  ['A']
+t=2 n=True ready  ['A']
+c 358:
+t=2 n=False redo  ['C']
+t=2 n=False ready  ['A']
+t=3 n=True ready  ['A']
+c 359:
+t=2 n=False redo  ['C']
+t=3 n=False ready  ['B']
+t=2 n=True ready  ['B']
+c 360:
+t=2 n=False redo  ['C']
+t=2 n=False ready  ['B']
+t=3 n=True ready  ['B']
+c 361:
+t=2 n=False redo  ['C']
+t=3 n=False ready  ['C']
+t=2 n=True ready  ['C']
+c 362:
+t=2 n=False redo  ['C']
+t=2 n=False ready  ['C']
+t=3 n=True ready  ['C']
+c 363:
+t=2 n=False redo  ['C']
+t=3 n=False redone  ['A']
+t=2 n=True redone  ['A']
+c 364:
+t=2 n=False redo  ['C']
+t=2 n=False redone  ['A']
+t=3 n=True redone  ['A']
+c 365:
+t=2 n=False redo  ['C']
+t=3 n=False redone  ['B']
+t=2 n=True redone  ['B']
+c 366:
+t=2 n=False redo  ['C']
+t=2 n=False redone  ['B']
+t=3 n=True redone  ['B']
+c 367:
+t=2 n=True do  ['A']
+t=2 n=True do  ['B']
+t=2 n=True do  ['C']
+t=2 n=True redo  ['A']
+t=2 n=True redo  ['B']
+t=2 n=True redo  ['C']
+c 368:
+t=2 n=False do  ['A']
+t=2 n=False do  ['B']
+c 369:
+t=2 n=False do  ['A']
+t=2 n=False do  ['C']
+c 370:
+t=2 n=False do  ['A']
+t=2 n=False redo  ['A']
+c 371:
+t=2 n=False do  ['A']
+t=2 n=False redo  ['B']
+c 372:
+t=2 n=False do  ['A']
+t=2 n=False redo  ['C']
+c 373:
+t=2 n=False do  ['B']
+t=2 n=False do  ['C']
+c 374:
+t=2 n=False do  ['B']
+t=2 n=False redo  ['A']
+c 375:
+t=2 n=False do  ['B']
+t=2 n=False redo  ['B']
+c 376:
+t=2 n=False do  ['B']
+t=2 n=False redo  ['C']
+c 377:
+t=2 n=False do  ['C']
+t=2 n=False redo  ['A']
+c 378:
+t=2 n=False do  ['C']
+t=2 n=False redo  ['B']
+c 379:
+t=2 n=False do  ['C']
+t=2 n=False redo  ['C']
+c 380:
+t=2 n=False redo  ['A']
+t=2 n=False redo  ['B']
+c 381:
+t=2 n=False redo  ['A']
+t=2 n=False redo  ['C']
+c 382:
+t=2 n=False redo  ['B']
+t=2 n=False redo  ['C']

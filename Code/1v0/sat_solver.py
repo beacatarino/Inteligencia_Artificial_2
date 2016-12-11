@@ -1,29 +1,12 @@
+#from basic_dpll import dpll
 from mod_dpll import dpll
-# from mod_dpll import dpll
 
+def get_literal(symb, val):
 
-"""
-
-#PSEUDO CODE DA P. 96 PARA DPLL CLOSE LEARNING - ITERACTIVE
-#ALGORITMO 2.2
-
-def sat_solver_algorithm(CNF_formula):
-    b_level = 0
-
-    while True:
-        next_branch()
-        while True:
-            status = deduce_status()
-            if status == conflict:
-                analyse_conflict(b_level)
-                if b_level == 0:
-                    return False
-                    Backtrack(b_level)
-                elif status == SAT:
-                    return (solution)
-                else:
-                    break
-"""
+    if val:
+        return symb
+    else:
+        return '-' + symb
 
 def read_problem_line(line):
 
@@ -42,7 +25,7 @@ def read_cnf(cnf, verbose = 'False'):
     # variable initialization
     clause_list = []
     clause = []
-    symbol_list = set([]) 
+    symbol_list = set([])
 
     read_clauses = False
 
@@ -78,12 +61,12 @@ def read_cnf(cnf, verbose = 'False'):
 
     if clause != []:
         clause_list.append(clause)
-        
+
         for l in clause:
             if l[0] == '-':
                 l = l[1:]
             symbol_list.add(l)
-    
+
     if verbose:
         print("Done\n")
         print("Num of vars: " + var_num)
@@ -96,28 +79,33 @@ def read_cnf(cnf, verbose = 'False'):
             print("** " + str(c) + " **")
         print('\n')
     return clause_list, symbol_list
-    
+
+
+
+def write_output(model):
+
+    output = ''
+    for assign in model:
+        output = output + str(assign) + ' '
+
+    print(output)
 
 def sat_solver(cnf, verbose = False):
 
     clauses, symbols = read_cnf(cnf, verbose = False)
-   
+
     if verbose:
         print('Solving SAT...')
 
-    sat,answer = dpll(clauses, symbols)
+    sat, model = dpll(clauses, symbols)
+    #sat = dpll(clauses, symbols, {})
 
-    if sat:        
-        response = 'v '
-        for (k,v) in answer.items():    
-            if v == False:
-                response += '-' + str(k) + ' '
-            else:
-                response += str(k) + ' '
-        response += '0'
-        print('Satisfiable')
-        return response
-    else:
-        print('Not Satisfiable')
+    if verbose:
+        print('Done')
+        if sat:
+            print('Satisfiable')
+            # write_output(model)
+        else:
+            print('Not Satisfiable')
 
     return sat

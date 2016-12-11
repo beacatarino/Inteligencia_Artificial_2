@@ -44,6 +44,7 @@ def neg(literal):
 
 def apply_model(clauses, model):
 
+
     model_clauses = []
 
     for c in clauses:
