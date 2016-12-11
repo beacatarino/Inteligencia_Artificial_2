@@ -1,5 +1,0 @@
-I ready(A)
-
-A do(x) : ready(x) -> done(x)
-
-G done(A)
